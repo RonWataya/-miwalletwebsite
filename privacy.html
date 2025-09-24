@@ -53,7 +53,20 @@
   color: #1d4ed8 !important;
   font-weight: 600;
 }
+ /* Hero Section */
+    .hero-section {
+      background: url("/img/bg.webp") no-repeat center center/cover;
+      padding: 10rem 0;
+      color: white;
+      position: relative;
+    }
 
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.782);
+    }
 .navbar-nav .nav-link.active::after {
   content: "";
   position: absolute;
