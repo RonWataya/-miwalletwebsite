@@ -370,7 +370,7 @@ async function checkStatus(autoUuid = null) {
     // --- SMART BRIDGE LOGIC ---
     // If you're on the emulator, hostname is '10.0.2.2'. On PC, it's 'localhost'.
     const serverHost = window.location.hostname === "10.0.2.2" ? "10.0.2.2" : "localhost";
-    const apiUrl = `https://miwalletmw.com:10000/app/web-status`;
+    const apiUrl = "/api/app/web-status";
 
     try {
         const response = await fetch(apiUrl, {
