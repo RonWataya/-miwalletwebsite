@@ -2,246 +2,412 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Wallet LTD - Empowering Businesses in Malawi</title>
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Wallet Limited | Software, payments and infrastructure, built in Malawi</title>
+  <meta name="description" content="Mi Wallet Limited builds OmniPOS, inventory and RFID stock control, the Car Hire Management System and Mi Wallet Pay, develops custom software and hosts business infrastructure in Malawi.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
 
-  <!-- Bootstrap 5 CSS -->
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <link href="css/style.css" rel="stylesheet">
+  <!-- Site styles -->
+  <link href="css/site.css" rel="stylesheet">
 </head>
-<body>
+<body data-page="home">
 
-  <!-- Navigation Bar -->
- <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm custom-navbar">
+<a class="skip-link btn btn-dark" href="#main">Skip to content</a>
+
+<div class="topbar bg-dark d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <ul class="topbar-list">
+      <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+      <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+      <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-cfg="company.address"></span></li>
+    </ul>
+    <ul class="topbar-list">
+      <li><a href="expired">Renew subscription</a></li>
+      <li><a href="downloads">Download our apps</a></li>
+    </ul>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-xl site-nav sticky-top bg-body" aria-label="Main">
   <div class="container">
-    <a class="navbar-brand fw-bold d-flex align-items-center" href="index">
-      <img src="img/Miwallet.webp" alt="Mi Wallet LTD Logo" class="me-2" style="height:45px;">
-      
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <a class="navbar-brand" href="index"><img src="img/Miwallet.webp" alt="Mi Wallet Limited home" width="120" height="40"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Open menu">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link active" href="index">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="omnipos">OmniPOS</a></li>
-        <li class="nav-item"><a class="nav-link" href="credit">Credit</a></li>
-        <li class="nav-item"><a class="nav-link" href="mpay">Mi Wallet Pay</a></li>
-        <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="downloads">Downloads</a></li>
-        <li class="nav-item ms-lg-3">
-          <a href="contact" class="btn btn-primary px-3 py-2 rounded-pill shadow-sm">
-            Get Started
-          </a>
-        </li>
-      </ul>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="siteNav" aria-labelledby="siteNavLabel">
+      <div class="offcanvas-header">
+        <img id="siteNavLabel" src="img/Miwallet.webp" alt="Mi Wallet Limited" height="36">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+      </div>
+
+      <div class="offcanvas-body align-items-xl-center">
+        <ul class="navbar-nav mx-xl-auto">
+          <li class="nav-item"><a class="nav-link" href="index" data-nav="home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-nav="omnipos carhire mpay credit">Products</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <ul class="mega-list">
+                  <li><a class="mega-item" href="omnipos" data-nav="omnipos">
+                    <span class="mega-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">OmniPOS</span><span class="mega-desc">Point of sale, stock and VAT filing for retail</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="inventory" data-nav="inventory">
+                    <span class="mega-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Inventory and RFID</span><span class="mega-desc">Stock control from one shop to a warehouse</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="carhire" data-nav="carhire">
+                    <span class="mega-icon"><i class="bi bi-car-front" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Car Hire Management System</span><span class="mega-desc">Every hire on one record</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="credit" data-nav="credit">
+                    <span class="mega-icon"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Credit</span><span class="mega-desc">Track credit, loans and repayments</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="mpay" data-nav="mpay">
+                    <span class="mega-icon"><i class="bi bi-qr-code-scan" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Pay</span><span class="mega-desc">QR, NFC and tag payments, in development</span></span>
+                  </a></li>
+                </ul>
+                <div class="mega-feature d-none d-xl-flex">
+                  <span class="badge rounded-pill text-bg-warning align-self-start">In development</span>
+                  <p class="mega-feature-title">RFID warehouse management</p>
+                  <p class="mega-feature-text">Count a whole aisle by walking it. Deliveries update your stock as they arrive.</p>
+                  <a class="btn btn-sm btn-light align-self-start" href="inventory#rfid">How RFID works</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="inventory" data-nav="inventory">Inventory &amp; RFID</a></li>
+          <li class="nav-item"><a class="nav-link" href="services" data-nav="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about" data-nav="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="downloads" data-nav="downloads">Downloads</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn btn-outline-primary" href="contact" data-nav="contact">Contact us</a>
+          <a class="btn btn-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+        </div>
+
+        <ul class="offcanvas-contact d-xl-none">
+          <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+          <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+          <li><i class="bi bi-arrow-repeat" aria-hidden="true"></i><a href="expired">Renew subscription</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
 
+<main id="main">
 
-  <!-- Hero Section -->
-  <header class="hero-section text-center d-flex align-items-center">
-    <div class="container">
-      <h1 class="fw-bold">Empowering Businesses in Malawi</h1>
-      <p>
-        Mi Wallet LTD is a Malawian fintech company providing smart, affordable, and locally-relevant 
-        technology to help businesses digitize and grow.
-      </p>
-      <a href="#products" class="btn btn-primary btn-lg shadow-lg">Explore Our Solutions</a>
-    </div>
-  </header>
-
-  <!-- Products Section -->
-  <section id="products" class="py-5">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5">Our Products</h2>
-      <div class="row g-4">
-        <!-- OmniPOS Product -->
-        <div class="col-md-6">
-          <div class="card card-product h-100 shadow-lg border-0 rounded-4">
-            <div class="row g-0">
-              <div class="col-md-5 d-flex align-items-center justify-content-center bg-light rounded-start-4">
-                <img src="img/dashboard.svg" class="img-fluid rounded-start-4 p-3" alt="Mi Wallet OmniPOS">
-              </div>
-              <div class="col-md-7">
-                <div class="card-body p-4">
-                  <h5 class="card-title fw-bold">Mi Wallet OmniPOS</h5>
-                  <p class="card-text text-muted">
-                    A powerful cloud-based Point of Sale and Inventory Management System with web and Android apps. 
-                    It simplifies sales, tracks stock, and provides real-time analytics to help your business thrive.
-                  </p>
-                  <a href="omnipos" class="btn btn-outline-primary mt-3">Learn More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mi Wallet Pay Product -->
-        <div class="col-md-6">
-          <div class="card card-product h-100 shadow-lg border-0 rounded-4">
-            <div class="row g-0">
-              <div class="col-md-5 d-flex align-items-center justify-content-center bg-light rounded-start-4">
-                <img src="img/pay.avif" class="img-fluid rounded-start-4 p-3" alt="Mi Wallet Pay">
-              </div>
-              <div class="col-md-7">
-                <div class="card-body p-4">
-                  <h5 class="card-title fw-bold">Mi Wallet Pay</h5>
-                  <p class="card-text text-muted">
-                    Our upcoming payment solution designed to provide seamless and secure mobile payment processing. 
-                    It will integrate directly with our POS system to offer a complete ecosystem.
-                  </p>
-                  <a href="mpay" class="btn btn-outline-primary mt-3">Learn More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="other-services" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5">Our Other Services</h2>
-      <div class="row g-4">
-        <!-- Web & Mobile Dev -->
-        <div class="col-md-6">
-          <div class="card card-service h-100 shadow-lg border-0 rounded-4">
-            <div class="row g-0">
-              <div class="col-md-5 d-flex align-items-center justify-content-center bg-white rounded-start-4">
-                <img src="img/webdev.jpeg" class="img-fluid rounded-start-4 p-3" alt="Web and Mobile Development">
-              </div>
-              <div class="col-md-7">
-                <div class="card-body p-4">
-                  <h5 class="card-title fw-bold">Mobile App and Web Development</h5>
-                  <p class="card-text text-muted">
-                    With over 10 years of experience and expertise in software engineering and delivery, 
-                    we boast great and quality services for all your development needs.
-                  </p>
-                    <a href="mpay" class="btn btn-outline-primary mt-3">Learn More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cloud Hosting -->
-        <div class="col-md-6">
-          <div class="card card-service h-100 shadow-lg border-0 rounded-4">
-            <div class="row g-0">
-              <div class="col-md-5 d-flex align-items-center justify-content-center bg-white rounded-start-4">
-                <img src="img/cloud.jpg" class="img-fluid rounded-start-4 p-3" alt="Cloud Hosting">
-              </div>
-              <div class="col-md-7">
-                <div class="card-body p-4">
-                  <h5 class="card-title fw-bold">Cloud Hosting</h5>
-                  <p class="card-text text-muted">
-                    Host your websites and applications with us. We have all the tools ranging from Amazon services, 
-                    Microsoft Azure, and Google Cloud to secure your data. We'll help you manage costs.
-                  </p>
-                    <a href="mpay" class="btn btn-outline-primary mt-3">Learn More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section class="py-5 bg-primary text-white text-center">
-    <div class="container">
-      <h2 class="fw-bold mb-3">Ready to transform your business?</h2>
-      <p class="lead mb-4">
-        Join thousands of businesses already using our solutions to grow, organize, and compete.
-      </p>
-      <a href="omnipos" class="btn btn-light btn-lg">Get Started with OmniPOS</a>
-    </div>
-  </section>
-  <!-- Clients Section -->
- <section id="clients" class="py-5 bg-light">
+<header class="hero bg-dark text-white">
   <div class="container">
-    <h2 class="text-center fw-bold mb-5">Our Clients</h2>
-    <div class="row g-4 justify-content-center align-items-center text-center">
-      
-      <!-- Client Logo 1 -->
-      <div class="col-6 col-md-3">
-        <div class="client-logo d-flex align-items-center justify-content-center">
-          <img src="img/lunzu.png" alt="Client 1">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <h1>Software, payments and infrastructure, built in Malawi.</h1>
+        <p class="lead">We build our own products, develop software for other organisations, and host the infrastructure that all of it runs on. Our systems are at work in supermarkets, car hire yards, pharmaceutical cold chains, public health programmes and public transport.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="#products">See our products</a>
+          <a class="btn btn-outline-light btn-lg" href="contact">Talk to us</a>
         </div>
       </div>
+      <div class="col-lg-5">
+        <img src="img/front.jpg" alt="OmniPOS in use at a supermarket till in Blantyre, cashier serving a customer" class="shot">
+      </div>
+    </div>
+  </div>
+</header>
 
-      <!-- Client Logo 2 -->
-      <div class="col-6 col-md-3">
-        <div class="client-logo d-flex align-items-center justify-content-center">
-          <img src="img/zondie.png" alt="Client 2">
-        </div>
-      </div>
+<section class="recognition bg-dark text-white border-top border-secondary py-4" aria-labelledby="recognition-title">
+  <div class="container">
+    <h2 id="recognition-title" class="recognition-title">Supported and recognised by</h2>
+    <ul class="recognition-list">
+      <li>
+        <span class="recognition-logo"><img src="img/pppclogo.png" alt="World Bank" loading="lazy"></span>
+        <strong>Private Public Partnership Commission</strong>Digital Malawi Project, 2021
+      </li>
+      <li>
+        <span class="recognition-logo"><img src="img/nbm2.png" alt="National Bank of Malawi" loading="lazy"></span>
+        <strong>National Bank of Malawi</strong>Winners, NBM Innovation Jam
+      </li>
+      <li>
+        <span class="recognition-logo"><img src="img/ictam.png" alt="ICT Association of Malawi" loading="lazy"></span>
+        <strong>ICT Association of Malawi</strong>Winners, ICTAM Innovation Awards
+      </li>
+      <li>
+        <span class="recognition-logo"><img src="img/undp1.png" alt="UNDP Malawi" loading="lazy"></span>
+        <strong>UNDP Malawi</strong>USD 40,000 grant, GA Programme
+      </li>
+      <li>
+        <span class="recognition-logo"><img src="img/nvidia1.jpg" alt="NVIDIA" loading="lazy"></span>
+        <strong>NVIDIA</strong>Inception Program
+      </li>
+    </ul>
+  </div>
+</section>
 
-      <!-- Client Logo 3 -->
-      <div class="col-6 col-md-3">
-        <div class="client-logo d-flex align-items-center justify-content-center">
-          <img src="img/diplomats.png" alt="Client 3">
+<section class="py-5">
+  <div class="container">
+    <div class="band-head">
+      <h2>What we do</h2>
+      <p>Three kinds of work, and each one makes the other two better.</p>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-4">
+        <div class="pillar card card-body h-100 shadow-sm">
+          <h3>Our own products</h3>
+          <p>Systems we have built, own and sell: OmniPOS for retail, with its inventory and RFID stock control; the Car Hire Management System; Mi Wallet Credit; and Mi Wallet Pay.</p>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="pillar card card-body h-100 shadow-sm">
+          <h3>Software for others</h3>
+          <p>Custom applications built to order for companies and development partners, from Android apps to district-level coordination systems. <a href="services#software">See our client work</a></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pillar card card-body h-100 shadow-sm">
+          <h3>Infrastructure</h3>
+          <p>Web and domain hosting, business email, data hosting and virtual private servers, on Amazon Web Services infrastructure that we procure and configure ourselves. <a href="services#hosting">See our hosting</a></p>
+        </div>
+      </div>
+    </div>
+    <p class="band-foot">Building our own products taught us to run infrastructure properly. Running infrastructure means the software we deliver for clients does not sit on somebody else's shared hosting. And the client work keeps us working across industries rather than inside one.</p>
+  </div>
+</section>
 
-      <!-- Client Logo 4 -->
-      <div class="col-6 col-md-3">
-        <div class="client-logo d-flex align-items-center justify-content-center">
-          <img src="img/logo.png" alt="Client 4">
-        </div>
+<section id="products" class="py-5 bg-light">
+  <div class="container">
+    <div class="band-head">
+      <h2>Our products</h2>
+      <p>Systems we own outright, run every day and keep developing.</p>
+    </div>
+    <article class="product-row row g-5 align-items-center">
+      <div class="col-lg-6">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-primary">In commercial use in Blantyre</p>
+        <h3 class="product-name">OmniPOS</h3>
+        <p>Point of sale, inventory and tax filing for retail. A shop records what it buys in and what it sells, and from those two actions OmniPOS tells the owner what was spent, what was made on each item, and what is owed to the Malawi Revenue Authority in VAT. It then files the return directly through MRA's Electronic Invoicing System.</p>
+        <p>The till keeps trading when the internet drops and syncs when the connection returns. It is built for owners with no accounting background, and it runs on whatever device a shop already has, down to a basic smartphone.</p>
+        <div class="actions"><a class="btn btn-primary" href="omnipos">Explore OmniPOS</a></div>
       </div>
-       <!-- Client Logo 5 -->
-      <div class="col-6 col-md-3">
-        <div class="client-logo d-flex align-items-center justify-content-center">
-          <img src="img/ffmlogo.jpg" alt="Client 4">
-        </div>
-      </div>
-      <!-- Client Logo 6 -->
-      <div class="col-6 col-md-3">
-        <div class="client-logo d-flex align-items-center justify-content-center">
-          <img src="img/erms.png" alt="Client 4">
-        </div>
-      </div>
+     <div class="col-lg-6">
+  <img src="img/POS.webp" alt="Screenshot of the OmniPOS sales screen on a tablet or laptop" class="shot" loading="lazy">
+</div>
+    </article>
+  </div>
+</section>
 
+<section class="py-5 bg-dark text-white band-dark feature-inventory" aria-labelledby="inventory-title">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-primary">Inventory: live in OmniPOS</p>
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-warning ms-2">RFID: in development</p>
+        <h2 id="inventory-title">Inventory management, from one shop to a whole warehouse</h2>
+        <p>Most of a retailer's money is sitting on shelves and in storerooms. OmniPOS follows every item from the moment it is bought in to the moment it is sold, written off or corrected, so the owner always knows what the stock is worth, what is running low and what is close to expiry.</p>
+        <p>For large stores and warehouses we are building RFID stock control into OmniPOS. Stock carries a tag, staff read it with a handheld device instead of counting it by hand, and deliveries update the inventory as they are received.</p>
+        <div class="actions"><a class="btn btn-primary" href="inventory">How inventory and RFID work</a></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6"><img src="img/rfid.jpg" alt="Handheld RFID reader being swept along tagged cartons on a warehouse shelf" class="shot shot-square" loading="lazy"></div>
+          <div class="col-6"><img src="img/stock.jpg" alt="OmniPOS stock screen showing quantities, value and reorder alerts" class="shot shot-square" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li><h3>Stock in, stock out</h3><p>Every delivery and every sale moves the count, so the figure on screen matches the shelf.</p></li>
+      <li><h3>Mistakes and losses kept apart</h3><p>A correction undoes a wrong entry. A write-off records damaged or expired stock as a loss.</p></li>
+      <li><h3>Counts in minutes, not days</h3><p>With RFID, a whole aisle is read in one walk rather than counted item by item.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <article class="product-row row g-5 align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-primary">In use at car hire firms in Malawi</p>
+        <h3 class="product-name">Car Hire Management System & Car Tracking</h3>
+        <p>A complete system for running a car hire business: customer registration and licence checks, quotations, bookings, invoicing, payments and security deposits, vehicle release and return with photographic condition records, live vehicle tracking, servicing history, certificate expiry and a controlled store.</p>
+        <p>Everything to do with one hire sits on a single record, so nothing is chased between the front desk, the finance office and the gate.</p>
+        <p><strong>Tracking technology to help you follow your vehicle's physical location.</strong> </p>
+        <div class="actions"><a class="btn btn-primary" href="carhire">Explore the Car Hire System</a></div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <!-- Final photo: img/carhire-record.png -->
+<img src="img/car.webp" alt="Screenshot of a hire record in the Car Hire system, showing booking, deposit and vehicle photos" class="shot" loading="lazy">
+      </div>
+    </article>
+
+    <article class="product-row row g-5 align-items-center">
+      <div class="col-lg-6">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-primary">Available on Android</p>
+        <h3 class="product-name">Mi Wallet Pay</h3>
+        <p>Our payment platform, and the project the company was founded on. It lets a person pay from their phone by scanning a QR code, by tapping the phone against a terminal using NFC, or by tapping a physical tag. Three methods, so that almost any customer can be served whatever handset they carry.</p>
+        <div class="actions"><a class="btn btn-primary" href="mpay">Explore Mi Wallet Pay</a></div>
+      </div>
+      <div class="col-lg-6">
+        <!-- Final photo: img/credit-app-ledger.png -->
+<img src="img/front.jpg" alt="Mi Wallet Credit app on a phone, showing a customer ledger" class="shot" loading="lazy">
+      </div>
+    </article>
+
+    
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="band-head">
+      <h2>Software we build for others</h2>
+      <p>Companies and development partners engage us directly to build systems to their requirements. Where we build to order, the client owns the result.</p>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-4">
+        <div class="work card card-body h-100 shadow-sm">
+          <p class="client">Fluxstr8</p>
+          <h3>Cold chain monitoring</h3>
+          <p>An Android application that tracks the temperature of pharmaceutical products as they move between regions, so a break in the cold chain is visible during the journey rather than discovered on arrival.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work card card-body h-100 shadow-sm">
+          <p class="client">GIZ</p>
+          <h3>District Nutrition Coordination System</h3>
+          <p>A coordination platform that brings nutrition programme reporting at district level into one system, so data can be collected, seen and acted on instead of assembled by hand.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work card card-body h-100 shadow-sm">
+          <p class="client">AfriTicket</p>
+          <h3>NFC fare payment for commuters</h3>
+          <p>Contactless fare payment for public transport. Commuters tap instead of handling cash, boarding is faster, and every fare collected is on record.</p>
+        </div>
+      </div>
+    </div>
+    <div class="actions"><a class="btn btn-outline-primary" href="services">Software and hosting services</a></div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <h2>Our journey so far</h2>
+        <p>From one payment idea in 2020 to systems running in shops, car hire yards and national programmes, with support from the World Bank, UNDP, National Bank of Malawi and NVIDIA along the way.</p>
+        <div class="actions"><a class="btn btn-outline-primary" href="about#journey">Read the full journey</a></div>
+      </div>
+      <div class="col-lg-8">
+        <ol class="timeline">
+<li><div class="when">2021</div><div class="what"><h3>Mi Wallet Limited is registered</h3><p>We register the company in Blantyre and take on our first hosting clients, looking after their websites, company email and business data. Some of them are still with us.</p></div></li>
+<li><div class="when">2021</div><div class="what"><h3>Supported by the World Bank through the Digital Malawi Project</h3><p>Our payment platform receives support through the World Bank&ndash;funded Digital Malawi Project, implemented by the Public Private Partnership Commission.</p></div></li>
+<li><div class="when">2021</div><div class="what"><h3>Winners of the NBM Innovation Jam</h3><p>National Bank of Malawi's innovation competition names Mi Wallet among its winners for our work on digital payments.</p></div></li>
+<li><div class="when">2021</div><div class="what"><h3>Winners at the ICTAM Innovation Awards</h3><p>The ICT Association of Malawi recognises Mi Wallet at its Innovation Awards.</p></div></li>
+<li><div class="when">2025</div><div class="what"><h3>USD 40,000 grant from UNDP</h3><p>UNDP Malawi awards us a USD 40,000 grant under its GA Programme to support the development of our payment platform.</p></div></li>
+</ol>
+      </div>
     </div>
   </div>
 </section>
 
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-5 bg-gradient-blue text-white">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-4">Get in Touch</h2>
-      <p class="mb-3">We’d love to hear from you. Reach us via email or phone.</p>
-      <p class="mb-1"><strong>Email:</strong> info@miwalletmw.com</p>
-      <p><strong>Phone:</strong> +265 991 448 707/887 355 195</p>
+<section class="py-5">
+  <div class="container">
+    <div class="band-head">
+      <h2>Businesses and organisations we work with</h2>
+      <p>Retailers, car hire firms and development partners who run on our software or our servers.</p>
     </div>
-  </section>
+    <ul class="logo-wall">
+      <li><img src="img/lunzu.png" alt="Lunzu Shoppers"></li>
+      <li><img src="img/zondie.png" alt="Zondie Mini Mart"></li>
+      <li><img src="img/diplomats.png" alt="Diplomats Car Hire"></li>
+     <li><img src="img/flex3.png" alt="Flexstr8 Inc"></li>
+      <li><img src="img/giz1.jpg" alt="giz"></li>
+     <li><img src="img/afriticket.jpg" alt="afriticket"></li>
+      <li><img src="img/logo.png" alt="Client logo"></li>
+      <li><img src="img/ffmlogo.jpg" alt="Client logo"></li>
+      <li><img src="img/erms.png" alt="Client logo"></li>
+    </ul>
+  </div>
+</section>
 
-
-  <!-- Footer -->
-  <footer class="bg-dark text-white-50 py-4">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 Mi Wallet LTD. All Rights Reserved.</p>
-      <p class="mb-0"><a href="privacy" class="text-white-50">Privacy Policy</a></p>
-      <p class="mb-0"><a href="terms" class="text-white-50">Terms of Service</a></p>
+<section class="py-5 bg-dark text-white band-dark">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <h2>Try the systems yourself</h2>
+        <p>OmniPOS and the Car Hire Management System are both open for anyone to create an account and try. If you would rather see them running first, we are in Blantyre and can come to your premises.</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+          <a class="btn btn-outline-light btn-lg" href="contact" data-cfg-href="links.carhire" target="_blank" rel="noopener">Try the Car Hire System</a>
+         
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</main>
+
+<footer class="site-footer bg-dark text-white-50 pt-5 pb-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <p class="footer-name">Mi Wallet Limited</p>
+        <p>Software, payments and infrastructure, built in Malawi. Registered in 2021.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Products</h2>
+        <ul>
+          <li><a href="omnipos">OmniPOS</a></li>
+          <li><a href="inventory">Inventory and RFID</a></li>
+          <li><a href="carhire">Car Hire System</a></li>
+          <li><a href="credit">Mi Wallet Credit</a></li>
+          <li><a href="mpay">Mi Wallet Pay</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Company</h2>
+        <ul>
+          <li><a href="about">About us</a></li>
+          <li><a href="about#journey">Our journey</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="downloads">Downloads</a></li>
+          <li><a href="expired">Renew a subscription</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h2 class="footer-head">Contact</h2>
+        <address>
+          <span data-cfg="company.address"></span><br>
+          <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="phone.secondary" data-cfg-href="phone.secondary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a><br>
+          <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="contact"></a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; <span data-year></span> Mi Wallet Limited. All rights reserved.</p>
+      <p><a href="privacy">Privacy policy</a><a href="terms">Terms of service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+
 </body>
 </html>

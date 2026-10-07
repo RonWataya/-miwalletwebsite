@@ -1,362 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OmniPOS  Know Your Business. Control Your Money.</title>
-
-  <!-- Favicon -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Wallet Credit | Track Banja, loans and repayments</title>
+  <meta name="description" content="Mi Wallet Credit tracks credit, loans and repayments for shops, lenders and individuals. Works offline and backs up securely.">
   <link rel="icon" type="image/png" href="img/favicon.png">
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="css/omnipos.css" rel="stylesheet">
+  <!-- Site styles -->
+  <link href="css/site.css" rel="stylesheet">
 </head>
+<body data-page="credit">
 
-<body>
+<a class="skip-link btn btn-dark" href="#main">Skip to content</a>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+<div class="topbar bg-dark d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <ul class="topbar-list">
+      <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+      <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+      <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-cfg="company.address"></span></li>
+    </ul>
+    <ul class="topbar-list">
+      <li><a href="expired">Renew subscription</a></li>
+      <li><a href="downloads">Download our apps</a></li>
+    </ul>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-xl site-nav sticky-top bg-body" aria-label="Main">
   <div class="container">
-    <a class="navbar-brand fw-bold d-flex align-items-center" href="index">
-      <img src="img/Miwallet.webp" alt="Mi Wallet LTD Logo" class="me-3">
-    </a>
+    <a class="navbar-brand" href="index"><img src="img/Miwallet.webp" alt="Mi Wallet Limited home" width="120" height="40"></a>
 
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Open menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-        <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="omnipos">OmniPOS</a></li>
-        <li class="nav-item"><a class="nav-link active" href="credit">Credit</a></li>
-        <li class="nav-item"><a class="nav-link" href="mpay">Mi Wallet Pay</a></li>
-        <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="downloads">Downloads</a></li>
-        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-          <a href="contact" class="btn btn-primary px-4 py-2 rounded-pill fw-600 shadow-sm">
-            Get Started
-          </a>
-        </li>
-      </ul>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="siteNav" aria-labelledby="siteNavLabel">
+      <div class="offcanvas-header">
+        <img id="siteNavLabel" src="img/Miwallet.webp" alt="Mi Wallet Limited" height="36">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+      </div>
+
+      <div class="offcanvas-body align-items-xl-center">
+        <ul class="navbar-nav mx-xl-auto">
+          <li class="nav-item"><a class="nav-link" href="index" data-nav="home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-nav="omnipos carhire mpay credit">Products</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <ul class="mega-list">
+                  <li><a class="mega-item" href="omnipos" data-nav="omnipos">
+                    <span class="mega-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">OmniPOS</span><span class="mega-desc">Point of sale, stock and VAT filing for retail</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="inventory" data-nav="inventory">
+                    <span class="mega-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Inventory and RFID</span><span class="mega-desc">Stock control from one shop to a warehouse</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="carhire" data-nav="carhire">
+                    <span class="mega-icon"><i class="bi bi-car-front" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Car Hire Management System</span><span class="mega-desc">Every hire on one record</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="credit" data-nav="credit">
+                    <span class="mega-icon"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Credit</span><span class="mega-desc">Track credit, loans and repayments</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="mpay" data-nav="mpay">
+                    <span class="mega-icon"><i class="bi bi-qr-code-scan" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Pay</span><span class="mega-desc">QR, NFC and tag payments, in development</span></span>
+                  </a></li>
+                </ul>
+                <div class="mega-feature d-none d-xl-flex">
+                  <span class="badge rounded-pill text-bg-warning align-self-start">In development</span>
+                  <p class="mega-feature-title">RFID warehouse management</p>
+                  <p class="mega-feature-text">Count a whole aisle by walking it. Deliveries update your stock as they arrive.</p>
+                  <a class="btn btn-sm btn-light align-self-start" href="inventory#rfid">How RFID works</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="inventory" data-nav="inventory">Inventory &amp; RFID</a></li>
+          <li class="nav-item"><a class="nav-link" href="services" data-nav="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about" data-nav="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="downloads" data-nav="downloads">Downloads</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn btn-outline-primary" href="contact" data-nav="contact">Contact us</a>
+          <a class="btn btn-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+        </div>
+
+        <ul class="offcanvas-contact d-xl-none">
+          <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+          <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+          <li><i class="bi bi-arrow-repeat" aria-hidden="true"></i><a href="expired">Renew subscription</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero-section d-flex align-items-center">
-  <div class="container text-center">
-    <h1 class="hero-title mb-4">
-      No More Forgotten Debts.<br>
-      No More Missing Cash.<br>
-      Just Pure Business Growth.
-    </h1>
+<main id="main">
 
-    <p class="hero-subtitle mb-5">
-      Whether you need a <strong>Full POS</strong> for your shop or <strong>MiWallet Credit</strong> to track loans and "Banja," 
-      we give you total control over <strong>money coming in, money going out, and your balance.</strong>
-      Start managing your business professionally for as low as <strong>MWK 15,000.</strong>
-    </p>
-
-    <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
-        <span class="badge bg-white text-dark p-2 px-3 shadow-sm rounded-pill">📱 Works on any Phone</span>
-        <span class="badge bg-white text-dark p-2 px-3 shadow-sm rounded-pill">🔌 Works Without Internet</span>
-        <span class="badge bg-white text-dark p-2 px-3 shadow-sm rounded-pill">🛡️ Secure Data Backup</span>
-    </div>
-
-    <div class="cta-btns">
-        <a href="#pricing" class="btn btn-primary btn-lg rounded-pill shadow-lg px-5 me-sm-3 mb-3 mb-sm-0">
-          View Pricing Plans
-        </a>
-        <a href="#check-status" class="btn btn-outline-primary btn-lg rounded-pill shadow-sm px-5 mb-3 mb-sm-0 bg-white">
-          Renew Subscription
-        </a>
+<header class="hero bg-dark text-white hero-page">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-primary">Available on Android</p>
+        <h1>No more forgotten debts, no more missing cash.</h1>
+        <p class="lead">Mi Wallet Credit keeps track of Banja and loans for you: who took what, who paid what, and exactly how much is still owed. From <span data-cfg="pricing.credit" data-cfg-format="mwk"></span> a month.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="downloads">Download the app</a>
+          <a class="btn btn-outline-light btn-lg" href="expired">Renew a subscription</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <!-- Final photo: img/credit-hero.jpg -->
+<img src="img/front.jpg" alt="Shop owner recording a credit on a phone at a grocery counter" class="shot">
+      </div>
     </div>
   </div>
 </header>
 
-
-<!-- WHY OMNIPOS -->
-<section id="why" class="py-6">
+<section class="py-5">
   <div class="container">
-    <h2 class="text-center fw-bold mb-2 section-title">
-      One Product, Endless Solutions
-    </h2>
-    <p class="text-center text-muted mb-5 section-subtitle">
-      Whether you sell soap or lend capital, MiWallet Credit keeps your money safe.
-    </p>
+    <div class="band-head">
+      <h2>Who it is for</h2>
+      <p>Whether you sell soap or lend capital, the problem is the same: money that is owed to you and needs to come back.</p>
+    </div>
+    <div class="detail-grid">
+      <div><h3>Grocery stores</h3><p>Stop relying on old notebooks. Record Banja the moment it is given, and never forget who owes you for sugar or soap again.</p></div>
+      <div><h3>Money lenders</h3><p>Track loans, interest and part-payments. Payments are applied to the oldest debt first, so balances are always correct.</p></div>
+      <div><h3>Individuals</h3><p>Lent money to a friend or relative? Keep a proper record so you can be paid back without the "I forgot" excuses.</p></div>
+      <div><h3>Companies</h3><p>Manage staff advances and petty cash, and produce clear statements and projections with one click.</p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card h-100 p-4 rounded-3 text-center border">
-          <div class="feature-icon mb-3">🏪</div>
-          <h5 class="fw-bold">Grocery Stores</h5>
-          <p class="small text-muted">Stop using old notebooks. Record "Banja" (credits) instantly and never forget who owes you for sugar or soap again.</p>
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="band-head">
+      <h2>What the app does for you</h2>
+      <p>Like an assistant that keeps your book for you, and never loses a page.</p>
+    </div>
+    <div class="detail-grid">
+      <div><h3>Clears old debts first</h3><p>If a customer owes for sugar from last week and soap from today, their payment pays off the sugar first. Your books stay clean without you doing any sums.</p></div>
+      <div><h3>Accepts small payments</h3><p>Customers do not always have the full amount. Record even a small payment, and the app shows at once how much is still owed.</p></div>
+      <div><h3>Lose your phone, not your money</h3><p>A notebook can burn or go missing. If your phone breaks, sign in on a new one and every customer and balance is there as it was.</p></div>
+      <div><h3>Works without internet</h3><p>Record credit and payments anywhere, even in the village. The app saves everything and updates once you have a signal.</p></div>
+      <div><h3>Ends arguments</h3><p>Show a customer the full list of every credit and every payment. It builds trust and stops "I already paid that".</p></div>
+      <div><h3>Shows your total investment</h3><p>See how much money you have put into the business, the value of stock on your shelves, and how much is still outside in debts.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h2 class="mb-3">Getting started in five steps</h2>
+        <p class="mb-5 lead text-body-secondary">Everything you need for your first day with the app.</p>
+        <ol class="steps">
+          <li><h3>Register your customers</h3><p>Open the app and tap <strong>Add Customer</strong>. Enter their name and phone number. This creates a digital page for them, replacing the page in your old notebook.</p></li>
+          <li><h3>Give credit</h3><p>Tap a customer's name to open their ledger, then tap <strong>Give Credit</strong>. Enter the amount and a short note, such as "2kg sugar". It is added to what they owe straight away.</p></li>
+          <li><h3>Receive payments</h3><p>When the customer brings money, tap <strong>Receive Money</strong> in their ledger. The app pays off their oldest debts first, so your records stay in order.</p></li>
+          <li><h3>Check your dashboard</h3><p>The main screen shows your <strong>Total Amount Owing</strong>: the money currently sitting with customers. It tells you how much you need to collect before you restock.</p></li>
+          <li><h3>Back up your data</h3><p>Before closing for the day, tap <strong>Backup</strong>. Your records go to our secure servers, and if you lose your phone they can be restored in seconds.</p></li>
+        </ol>
+        <div class="actions">
+          <a class="btn btn-outline-primary" href="#" data-cfg-href="links.creditManual" download>Download the full user manual (PDF)</a>
         </div>
       </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card h-100 p-4 rounded-3 text-center border">
-          <div class="feature-icon mb-3">💰</div>
-          <h5 class="fw-bold">Money Lenders</h5>
-          <p class="small text-muted">Track loans, interest, and partial payments. MiWallet Credit automatically applies payments to the oldest debt first.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card h-100 p-4 rounded-3 text-center border">
-          <div class="feature-icon mb-3">👤</div>
-          <h5 class="fw-bold">Individuals</h5>
-          <p class="small text-muted">Lent money to a friend or relative? Keep a professional record so you can get paid back without the "I forgot" excuses.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="feature-card h-100 p-4 rounded-3 text-center border">
-          <div class="feature-icon mb-3">🏢</div>
-          <h5 class="fw-bold">Companies</h5>
-          <p class="small text-muted">Manage staff advances and petty cash. Generate clear financial statements and projections with one click.</p>
-        </div>
+      <div class="col-lg-5 media-stack">
+        <!-- Final photo: img/credit-ledger-screen.png -->
+<img src="img/front.jpg" alt="Customer ledger screen in Mi Wallet Credit, showing credits, payments and balance" class="shot" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-
-<!-- FEATURES -->
-<section id="features" class="py-6 bg-white">
+<section id="pricing" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center fw-bold mb-2 section-title">How MiWallet Credit Works For You</h2>
-    <p class="text-center text-muted mb-5 section-subtitle">
-      It’s like having a digital assistant that never sleeps and never makes mistakes.
-    </p>
-
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-4 bg-light border-0 shadow-sm transition-up">
-          <div class="mb-4 text-primary fs-1">🤝</div>
-          <h5 class="fw-bold mb-3">Clear Old Debts First</h5>
-          <p class="text-muted mb-0 lh-lg">
-            If a customer owes you for sugar from last week and soap from today, their payment automatically pays off the sugar first. Your books stay clean without you doing any math.
-          </p>
-        </div>
+    <div class="band-head">
+      <h2>Pricing</h2>
+      <p>Start small with Credit, or move to OmniPOS when you need a full till and stock control.</p>
+    </div>
+    <div class="plans">
+      <div class="plan card h-100 shadow-sm text-bg-primary">
+        <h3>Mi Wallet Credit</h3>
+        <p class="for">For lenders and small shops</p>
+        <div class="price" data-cfg="pricing.credit" data-cfg-format="mwk"></div>
+        <p class="per">per month</p>
+        <ul>
+          <li>Track all debts and loans</li>
+          <li>Oldest debt cleared first, automatically</li>
+          <li>Unlimited customers</li>
+          <li>Works fully offline</li>
+          <li>Total investment reports</li>
+        </ul>
+        <a class="btn btn-light" href="downloads">Download the app</a>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-4 bg-light border-0 shadow-sm transition-up">
-          <div class="mb-4 text-primary fs-1">🪙</div>
-          <h5 class="fw-bold mb-3">Small Payments Allowed</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Customers don’t always have the full amount. Record even the smallest "ka-small" payment, and the app will instantly show them exactly how much they still owe.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-4 bg-light border-0 shadow-sm transition-up">
-          <div class="mb-4 text-primary fs-1">📱</div>
-          <h5 class="fw-bold mb-3">Lose Your Phone, Not Your Money</h5>
-          <p class="text-muted mb-0 lh-lg">
-            A notebook can burn or get lost. If your phone breaks, just log in on a new one and all your customers and their debts will appear exactly as they were.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-4 bg-light border-0 shadow-sm transition-up">
-          <div class="mb-4 text-primary fs-1">📵</div>
-          <h5 class="fw-bold mb-3">Works Without Internet</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Network problems? No problem. Record credits and payments anywhere—even in the village. The app saves everything and updates once you have a signal.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-4 bg-light border-0 shadow-sm transition-up">
-          <div class="mb-4 text-primary fs-1">📖</div>
-          <h5 class="fw-bold mb-3">No More Arguments</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Show customers a clear list of every time they took credit and every time they paid. It builds trust and stops "I already paid that" excuses.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-4 bg-light border-0 shadow-sm transition-up">
-          <div class="mb-4 text-primary fs-1">📈</div>
-          <h5 class="fw-bold mb-3">See Your Total Investment</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Instantly see how much money you have put into your business, the value of stock on your shelves, and how much is still "outside" in debts.
-          </p>
-        </div>
+      <div class="plan card h-100 shadow-sm">
+        <h3>OmniPOS Standard</h3>
+        <p class="for">Full shop management</p>
+        <div class="price" data-cfg="pricing.omniposStandard" data-cfg-format="mwk"></div>
+        <p class="per">per month</p>
+        <ul>
+          <li>All Credit features included</li>
+          <li>Inventory and stock tracking</li>
+          <li>Daily sales reports</li>
+          <li>Barcode scanning</li>
+          <li>Expiry alerts</li>
+        </ul>
+        <a class="btn btn-outline-primary" href="omnipos">Explore OmniPOS</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
 
-<!-- PRICING -->
-<section id="pricing" class="py-6 bg-light-subtle">
+<footer class="site-footer bg-dark text-white-50 pt-5 pb-4">
   <div class="container">
-    <h2 class="text-center fw-bold mb-2">Start Small, Grow Big</h2>
-    <p class="text-center text-muted mb-5">Pick the plan that fits your business size today.</p>
-
-    <div class="row g-4 justify-content-center">
-      
-      <div class="col-md-6 col-lg-4">
-        <div class="pricing-card h-100 p-0 rounded-4 overflow-hidden bg-white border border-primary border-opacity-25 shadow-sm">
-          <div class="pricing-header bg-primary text-white p-4 text-center">
-            <h4 class="mb-0 fw-bold">MiWallet Credit</h4>
-            <p class="small mb-0 opacity-75">For Lenders & Small Shops</p>
-          </div>
-          <div class="pricing-body p-5">
-            <div class="text-center mb-4">
-              <h2 class="fw-bold mb-0">MWK 6,600</h2>
-              <span class="text-muted">Per Month</span>
-            </div>
-            <ul class="list-unstyled mb-5">
-              <li class="mb-3">✨ <strong>Track All Debts & Loans</strong></li>
-              <li class="mb-3">✨ Automatic "Oldest Debt" clearing</li>
-              <li class="mb-3">✨ Save unlimited customer names</li>
-              <li class="mb-3">✨ Works 100% Offline</li>
-              <li class="mb-3">✨ Total Investment Reports</li>
-            </ul>
-            <a href="#check-status" class="btn btn-outline-primary w-100 py-3 fw-bold rounded-pill">Start Tracking Now</a>
-          </div>
-        </div>
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <p class="footer-name">Mi Wallet Limited</p>
+        <p>Software, payments and infrastructure, built in Malawi. Registered in 2021.</p>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="pricing-card h-100 p-0 rounded-4 overflow-hidden bg-white border border-light shadow-sm">
-          <div class="pricing-header bg-dark text-white p-4 text-center">
-            <h4 class="mb-0 fw-bold">OmniPOS Standard</h4>
-            <p class="small mb-0">Full Shop Management</p>
-          </div>
-          <div class="pricing-body p-5">
-            <div class="text-center mb-4">
-              <h2 class="fw-bold mb-0">MWK 65,000</h2>
-              <span class="text-muted">Per Month</span>
-            </div>
-            <ul class="list-unstyled mb-5">
-              <li class="mb-3">✅ <strong>All Credit Features included</strong></li>
-              <li class="mb-3">✅ Inventory (Stock) Tracking</li>
-              <li class="mb-3">✅ Daily Sales Reports</li>
-              <li class="mb-3">✅ Barcode Scanning</li>
-              <li class="mb-3">✅ Expired Product Alerts</li>
-            </ul>
-            <a href="#check-status" class="btn btn-dark w-100 py-3 fw-bold rounded-pill">Get Full POS</a>
-          </div>
-        </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Products</h2>
+        <ul>
+          <li><a href="omnipos">OmniPOS</a></li>
+          <li><a href="inventory">Inventory and RFID</a></li>
+          <li><a href="carhire">Car Hire System</a></li>
+          <li><a href="credit">Mi Wallet Credit</a></li>
+          <li><a href="mpay">Mi Wallet Pay</a></li>
+        </ul>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="user-manual" class="py-6 bg-white">
-  <div class="container">
-    <div class="text-center mb-5">
-  <h2 class="fw-bold section-title">Jump Start Guide</h2>
-  <p class="text-muted section-subtitle">
-    Master the MiWallet Credit app in 5 simple steps.
-  </p>
-
-  <a href="downloads/Mi_Wallet_Credit_User_Manual.pdf"
-     class="btn btn-outline-primary rounded-pill px-4 mt-3"
-     download>
-    📄 Download Full User Manual (PDF)
-  </a>
-</div>
-
-
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="p-4 border rounded-4 h-100 shadow-sm">
-          <div class="badge bg-primary rounded-pill mb-3">Step 1</div>
-          <h5 class="fw-bold">Register Your Customers</h5>
-          <p class="small text-muted">Open the app and tap the <strong>"+" (Add Customer)</strong> button. Enter their name and phone number. This creates a digital "file" for them, replacing your old notebook page.</p>
-        </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Company</h2>
+        <ul>
+          <li><a href="about">About us</a></li>
+          <li><a href="about#journey">Our journey</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="downloads">Downloads</a></li>
+          <li><a href="expired">Renew a subscription</a></li>
+        </ul>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="p-4 border rounded-4 h-100 shadow-sm">
-          <div class="badge bg-primary rounded-pill mb-3">Step 2</div>
-          <h5 class="fw-bold">Giving Credit (Banja)</h5>
-          <p class="small text-muted">Tap on a customer's name to open their personal Ledger. Click <strong>"Give Credit"</strong>. Enter the amount and a quick note (e.g., "2kg Sugar"). The app adds this to their total debt immediately.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="p-4 border rounded-4 h-100 shadow-sm">
-          <div class="badge bg-primary rounded-pill mb-3">Step 3</div>
-          <h5 class="fw-bold">Receiving Payments</h5>
-          <p class="small text-muted">When a customer brings money, tap <strong>"Receive Money"</strong> inside their ledger. The app is smart: it automatically pays off their oldest debts first so your records stay organized.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="p-4 border rounded-4 h-100 shadow-sm">
-          <div class="badge bg-success rounded-pill mb-3">Step 4</div>
-          <h5 class="fw-bold">Check Your Dashboard</h5>
-          <p class="small text-muted">The main screen shows your <strong>"Total Amount Owing."</strong> This is your investment currently sitting with customers. It helps you know exactly how much cash you need to collect to restock.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="p-4 border rounded-4 h-100 shadow-sm">
-          <div class="badge bg-danger rounded-pill mb-3">Step 5</div>
-          <h5 class="fw-bold">Backup Your Data</h5>
-          <p class="small text-muted">Before closing for the day, tap <strong>"Backup."</strong> This sends your records to our secure cloud. If you lose your phone, your money records are safe and can be restored in seconds.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="p-4 bg-primary text-white rounded-4 h-100 shadow-sm">
-          <h5 class="fw-bold">💡 Pro Tip</h5>
-          <p class="small">Use the <strong>Home</strong> button to jump back to the dashboard instantly. Show the customer their "Transaction History" on the screen to build trust and avoid arguments about old payments.</p>
-        </div>
+      <div class="col-lg-4">
+        <h2 class="footer-head">Contact</h2>
+        <address>
+          <span data-cfg="company.address"></span><br>
+          <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="phone.secondary" data-cfg-href="phone.secondary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a><br>
+          <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="contact"></a>
+        </address>
       </div>
     </div>
-  </div>
-</section>
-<!-- CTA -->
-<section class="cta-section py-6 text-center bg-primary text-white">
-  <div class="container">
-    <h2 class="fw-bold mb-3 display-6">Is Your Money Safe?</h2>
-    <p class="lead mb-5 opacity-90 mx-auto" style="max-width: 700px;">
-      Stop guessing how much money you made today. Join thousands of Malawian business owners who use MiWallet to protect their hard-earned cash.
-    </p>
-    <a href="downloads" target="_blank"
-       class="btn btn-light btn-lg px-5 py-3 fw-bold rounded-pill shadow-lg text-primary">
-      Start Your 30-Day Sub Today
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-dark text-white-50 py-5">
-  <div class="container">
-    <div class="text-center">
-      <p class="mb-2 text-white">&copy; 2025 Mi Wallet LTD. All Rights Reserved.</p>
-      <p class="mb-0">
-        <a href="privacy" class="text-white-50 text-decoration-none hover-link">Privacy Policy</a>
-        <p class="mb-0"><a href="terms" class="text-white-50">Terms of Service</a></p>
-      </p>
+    <div class="footer-base">
+      <p>&copy; <span data-year></span> Mi Wallet Limited. All rights reserved.</p>
+      <p><a href="privacy">Privacy policy</a><a href="terms">Terms of service</a></p>
     </div>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+
 </body>
 </html>

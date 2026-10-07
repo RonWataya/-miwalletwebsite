@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inventory management and RFID warehouse control | Mi Wallet OmniPOS</title>
+  <meta name="description" content="Inventory management in OmniPOS, from a single shop to RFID warehouse stock control. Stock in, stock out, corrections, write-offs, alerts and valuation.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Site styles -->
+  <link href="css/site.css" rel="stylesheet">
+</head>
+<body data-page="inventory">
+
+<a class="skip-link btn btn-dark" href="#main">Skip to content</a>
+
+<div class="topbar bg-dark d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <ul class="topbar-list">
+      <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+      <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+      <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-cfg="company.address"></span></li>
+    </ul>
+    <ul class="topbar-list">
+      <li><a href="expired">Renew subscription</a></li>
+      <li><a href="downloads">Download our apps</a></li>
+    </ul>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-xl site-nav sticky-top bg-body" aria-label="Main">
+  <div class="container">
+    <a class="navbar-brand" href="index"><img src="img/Miwallet.webp" alt="Mi Wallet Limited home" width="120" height="40"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Open menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="siteNav" aria-labelledby="siteNavLabel">
+      <div class="offcanvas-header">
+        <img id="siteNavLabel" src="img/Miwallet.webp" alt="Mi Wallet Limited" height="36">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+      </div>
+
+      <div class="offcanvas-body align-items-xl-center">
+        <ul class="navbar-nav mx-xl-auto">
+          <li class="nav-item"><a class="nav-link" href="index" data-nav="home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-nav="omnipos carhire mpay credit">Products</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <ul class="mega-list">
+                  <li><a class="mega-item" href="omnipos" data-nav="omnipos">
+                    <span class="mega-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">OmniPOS</span><span class="mega-desc">Point of sale, stock and VAT filing for retail</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="inventory" data-nav="inventory">
+                    <span class="mega-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Inventory and RFID</span><span class="mega-desc">Stock control from one shop to a warehouse</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="carhire" data-nav="carhire">
+                    <span class="mega-icon"><i class="bi bi-car-front" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Car Hire Management System</span><span class="mega-desc">Every hire on one record</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="credit" data-nav="credit">
+                    <span class="mega-icon"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Credit</span><span class="mega-desc">Track credit, loans and repayments</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="mpay" data-nav="mpay">
+                    <span class="mega-icon"><i class="bi bi-qr-code-scan" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Pay</span><span class="mega-desc">QR, NFC and tag payments, in development</span></span>
+                  </a></li>
+                </ul>
+                <div class="mega-feature d-none d-xl-flex">
+                  <span class="badge rounded-pill text-bg-warning align-self-start">In development</span>
+                  <p class="mega-feature-title">RFID warehouse management</p>
+                  <p class="mega-feature-text">Count a whole aisle by walking it. Deliveries update your stock as they arrive.</p>
+                  <a class="btn btn-sm btn-light align-self-start" href="inventory#rfid">How RFID works</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="inventory" data-nav="inventory">Inventory &amp; RFID</a></li>
+          <li class="nav-item"><a class="nav-link" href="services" data-nav="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about" data-nav="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="downloads" data-nav="downloads">Downloads</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn btn-outline-primary" href="contact" data-nav="contact">Contact us</a>
+          <a class="btn btn-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+        </div>
+
+        <ul class="offcanvas-contact d-xl-none">
+          <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+          <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+          <li><i class="bi bi-arrow-repeat" aria-hidden="true"></i><a href="expired">Renew subscription</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="hero bg-dark text-white hero-page">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <h1>Know what is on your shelves, in your stores and on the way in.</h1>
+        <p class="lead">Inventory management in OmniPOS, from a single grocery shop to a warehouse running on RFID. Every item is followed from the day it is bought to the day it is sold, so stock stops being a guess.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="#rfid">RFID warehouse management</a>
+          <a class="btn btn-outline-light btn-lg" href="#how-stock-moves">How stock moves</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <!-- Final photo: img/inventory-hero-warehouse.jpg -->
+<img src="img/cashier.avif" alt="Warehouse aisle with tagged cartons and a staff member holding an RFID reader" class="shot">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7 prose">
+        <h2>Why stock deserves its own system</h2>
+        <p>For most retailers, the largest part of the money in the business is not in the till or the bank. It is on the shelves and in the storeroom. When stock is counted in a notebook, or not counted at all, an owner cannot say with confidence what the business is worth, which items make money, or where goods are disappearing.</p>
+        <p>OmniPOS treats inventory as the centre of the business rather than an add-on to the till. Every delivery, sale, correction and loss is recorded against the item it affects. The result is a stock figure you can trust, a value for what is sitting in your stores, and early warning before a shelf runs empty or a product passes its expiry date.</p>
+        <p>The same records drive the rest of OmniPOS: the profit on each item, the day's money in and money out, and the VAT owed to MRA. Get the stock right and everything built on it is right as well.</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="card card-body shadow-sm">
+          <h3>Available today in OmniPOS</h3>
+          <p>Item and barcode records, stock in from suppliers, automatic stock out at the till, corrections, write-offs, low-stock and expiry alerts, and stock valuation.</p>
+          <h3 class="mt-4">In development</h3>
+          <p class="mb-0">RFID stock control for large retailers and warehouses, and Pocket Stock Manager for small grocery stores.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-stock-moves" class="py-5 bg-light">
+  <div class="container">
+    <div class="band-head">
+      <h2>How stock moves through OmniPOS</h2>
+      <p>The full life of an item, step by step, from the moment it is added to the system to the report at the end of the month.</p>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <ol class="steps">
+          <li>
+            <h3>Add your items</h3>
+            <p>Each product gets one record: its name, barcode, unit of sale, buying price, selling price and VAT treatment. You can set a reorder level for each item, and mark the ones that expire so OmniPOS tracks their dates.</p>
+          </li>
+          <li>
+            <h3>Record stock coming in</h3>
+            <p>When a delivery arrives, record the supplier, the quantity and what you paid. The stock count rises, and OmniPOS adds the cost to the money you have invested in stock, so you always know how much of your capital is sitting on the shelves.</p>
+          </li>
+          <li>
+            <h3>Sell, and stock goes out on its own</h3>
+            <p>Every sale at the till reduces the count for the items sold. Nobody has to update the stock separately, and because the buying price is already known, OmniPOS works out the profit made on each item as it is sold.</p>
+          </li>
+          <li>
+            <h3>Correct mistakes without distorting the books</h3>
+            <p>If a delivery was entered wrongly, a correction reverses it and reduces the recorded investment. The original entry is not simply deleted, so there is always a record of what changed and why.</p>
+          </li>
+          <li>
+            <h3>Write off damaged, expired or missing stock</h3>
+            <p>Goods that are broken, expired or lost are written off, and their cost is recorded as a loss rather than hidden. Keeping corrections and write-offs apart means you can see clearly how much the business is losing, and on which items.</p>
+          </li>
+          <li>
+            <h3>Act on alerts before they cost you</h3>
+            <p>OmniPOS warns you when an item falls to its reorder level and when products are close to expiry, while there is still time to restock or sell them.</p>
+          </li>
+          <li>
+            <h3>Read the value of your stock and what it earns</h3>
+            <p>At any time you can see what your stock is worth at cost, what is selling fast, what has stopped selling, and what each item has earned. The same figures feed your VAT return to MRA, so the tax you file matches what actually moved through the shop.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="col-lg-5 media-stack">
+        <!-- Final photo: img/inventory-stock-in.png -->
+<img src="img/stocking.jpg" alt="OmniPOS stock-in screen: recording a delivery with supplier, quantity and cost" class="shot" loading="lazy">
+        <div class="mt-4"><!-- Final photo: img/inventory-valuation-report.png -->
+<img src="img/POS.webp" alt="Stock value report showing investment, items selling fast and slow movers" class="shot" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rfid" class="py-5 bg-dark text-white band-dark feature-inventory">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-7">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-warning">In development</p>
+        <h2>RFID warehouse management</h2>
+        <p>Counting stock by hand is slow, tiring and usually wrong somewhere. In a large store or warehouse it can take a team days, and by the time the count is finished, stock has already moved. RFID changes that.</p>
+        <p>RFID stands for radio-frequency identification. A small tag is attached to an item, a carton or a pallet. A handheld reader picks up the tags by radio, without needing to see a barcode, and it can read many tags at once. A member of staff walking down an aisle with a reader can count the stock on it in the time it takes to walk.</p>
+        <p>We are building RFID stock control directly into OmniPOS, so the tags, the counts and the deliveries all feed the same inventory records described above. It is designed for retailers with large stores, mega stores and warehouses.</p>
+      </div>
+      <div class="col-lg-5">
+        <!-- Final photo: img/rfid-tag-closeup.jpg -->
+<img src="img/rfid.jpg" alt="Close-up of an RFID tag on a carton and a handheld reader" class="shot" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row g-5 mt-2">
+      <div class="col-lg-8">
+        <h3 class="mb-4">How RFID stock control will work, step by step</h3>
+        <ol class="steps">
+          <li>
+            <h3>Tag the stock</h3>
+            <p>Each tag is linked to its item record in OmniPOS. Depending on what you store, tags go on individual items, on cartons or on pallets.</p>
+          </li>
+          <li>
+            <h3>Receive deliveries without counting by hand</h3>
+            <p>When a delivery comes in, its tags are read as it is received. The inventory updates on its own, and the quantity received can be checked against what was ordered before the supplier's driver leaves.</p>
+          </li>
+          <li>
+            <h3>Count an aisle by walking it</h3>
+            <p>Instead of stopping the business for a stock take, staff walk the shelves with a handheld reader. Counts that took days take a fraction of the time, and they can be done as often as you like.</p>
+          </li>
+          <li>
+            <h3>See the gap between the system and the shelf</h3>
+            <p>OmniPOS compares what the reader found with what the records say should be there. Differences are listed item by item, so missing stock is found while it can still be explained.</p>
+          </li>
+          <li>
+            <h3>Follow stock as it moves between locations</h3>
+            <p>When goods move from a warehouse to a shop floor or another branch, the move is recorded, so each location's stock is accurate and nothing disappears between them.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-body shadow-sm">
+          <h3>Who it is for</h3>
+          <p>Retailers with large stores, mega stores, wholesalers and warehouses, and any business where stock takes are slow or stock goes missing between delivery and sale.</p>
+          <h3 class="mt-4">Talk to us early</h3>
+          <p>We are looking for businesses to work with as the module is completed. If stock control is costing you, tell us how your stores work.</p>
+          <a class="btn btn-primary mt-2" href="contact">Register your interest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-warning">In development</p>
+        <h2>Pocket Stock Manager, for small grocery stores</h2>
+        <p>Not every shop needs a full point of sale. Pocket Stock Manager is a smartphone app for small grocery stores that covers stock, sales and credit in one place, and works on the phone itself without needing an internet connection.</p>
+        <p>It came out of interviews with many grocery store owners, who told us what they need to see every day: what they have, what they sold, and who owes them. The app is built around exactly that.</p>
+      </div>
+      <div class="col-lg-6">
+        <!-- Final photo: img/pocket-stock-manager.jpg -->
+<img src="img/pocket.avif" alt="Pocket Stock Manager on a phone, held by a shop owner behind a grocery counter" class="shot" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-8">
+        <h2>Start with the inventory you have today</h2>
+        <p>Inventory management is part of every OmniPOS plan. Create an account and add your items, or ask us to come and set it up with you.</p>
+      </div>
+      <div class="col-lg-4">
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+          <a class="btn btn-outline-primary btn-lg" href="omnipos#pricing">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer bg-dark text-white-50 pt-5 pb-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <p class="footer-name">Mi Wallet Limited</p>
+        <p>Software, payments and infrastructure, built in Malawi. Registered in 2021.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Products</h2>
+        <ul>
+          <li><a href="omnipos">OmniPOS</a></li>
+          <li><a href="inventory">Inventory and RFID</a></li>
+          <li><a href="carhire">Car Hire System</a></li>
+          <li><a href="credit">Mi Wallet Credit</a></li>
+          <li><a href="mpay">Mi Wallet Pay</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Company</h2>
+        <ul>
+          <li><a href="about">About us</a></li>
+          <li><a href="about#journey">Our journey</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="downloads">Downloads</a></li>
+          <li><a href="expired">Renew a subscription</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h2 class="footer-head">Contact</h2>
+        <address>
+          <span data-cfg="company.address"></span><br>
+          <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="phone.secondary" data-cfg-href="phone.secondary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a><br>
+          <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="contact"></a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; <span data-year></span> Mi Wallet Limited. All rights reserved.</p>
+      <p><a href="privacy">Privacy policy</a><a href="terms">Terms of service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+
+</body>
+</html>

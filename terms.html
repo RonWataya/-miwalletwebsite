@@ -1,32 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms and Conditions | Mi Wallet Limited</title>
+  <meta name="description" content="Terms and Conditions for Mi Wallet Limited services.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms & Conditions - Mi Wallet LTD</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-<link rel="icon" type="image/png" href="img/favicon.png">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-body { font-family: 'Inter', sans-serif; }
-.terms-section { padding-top: 6rem; padding-bottom: 5rem; }
-</style>
-
+  <!-- Site styles -->
+  <link href="css/site.css" rel="stylesheet">
 </head>
-<body>
+<body data-page="terms">
 
-<section class="terms-section">
-<div class="container">
+<a class="skip-link btn btn-dark" href="#main">Skip to content</a>
 
-<h1 class="fw-bold mb-3">Terms and Conditions</h1>
-<p class="text-muted">Last updated: 14 February 2026</p>
+<div class="topbar bg-dark d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <ul class="topbar-list">
+      <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+      <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+      <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-cfg="company.address"></span></li>
+    </ul>
+    <ul class="topbar-list">
+      <li><a href="expired">Renew subscription</a></li>
+      <li><a href="downloads">Download our apps</a></li>
+    </ul>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-xl site-nav sticky-top bg-body" aria-label="Main">
+  <div class="container">
+    <a class="navbar-brand" href="index"><img src="img/Miwallet.webp" alt="Mi Wallet Limited home" width="120" height="40"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Open menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="siteNav" aria-labelledby="siteNavLabel">
+      <div class="offcanvas-header">
+        <img id="siteNavLabel" src="img/Miwallet.webp" alt="Mi Wallet Limited" height="36">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+      </div>
+
+      <div class="offcanvas-body align-items-xl-center">
+        <ul class="navbar-nav mx-xl-auto">
+          <li class="nav-item"><a class="nav-link" href="index" data-nav="home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-nav="omnipos carhire mpay credit">Products</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <ul class="mega-list">
+                  <li><a class="mega-item" href="omnipos" data-nav="omnipos">
+                    <span class="mega-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">OmniPOS</span><span class="mega-desc">Point of sale, stock and VAT filing for retail</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="inventory" data-nav="inventory">
+                    <span class="mega-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Inventory and RFID</span><span class="mega-desc">Stock control from one shop to a warehouse</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="carhire" data-nav="carhire">
+                    <span class="mega-icon"><i class="bi bi-car-front" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Car Hire Management System</span><span class="mega-desc">Every hire on one record</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="credit" data-nav="credit">
+                    <span class="mega-icon"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Credit</span><span class="mega-desc">Track credit, loans and repayments</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="mpay" data-nav="mpay">
+                    <span class="mega-icon"><i class="bi bi-qr-code-scan" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Pay</span><span class="mega-desc">QR, NFC and tag payments, in development</span></span>
+                  </a></li>
+                </ul>
+                <div class="mega-feature d-none d-xl-flex">
+                  <span class="badge rounded-pill text-bg-warning align-self-start">In development</span>
+                  <p class="mega-feature-title">RFID warehouse management</p>
+                  <p class="mega-feature-text">Count a whole aisle by walking it. Deliveries update your stock as they arrive.</p>
+                  <a class="btn btn-sm btn-light align-self-start" href="inventory#rfid">How RFID works</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="inventory" data-nav="inventory">Inventory &amp; RFID</a></li>
+          <li class="nav-item"><a class="nav-link" href="services" data-nav="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about" data-nav="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="downloads" data-nav="downloads">Downloads</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn btn-outline-primary" href="contact" data-nav="contact">Contact us</a>
+          <a class="btn btn-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+        </div>
+
+        <ul class="offcanvas-contact d-xl-none">
+          <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+          <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+          <li><i class="bi bi-arrow-repeat" aria-hidden="true"></i><a href="expired">Renew subscription</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="hero bg-dark text-white hero-page">
+  <div class="container">
+    <h1>Terms and Conditions</h1>
+    <p class="lead">Last updated: 14 February 2026</p>
+  </div>
+</header>
+
+<section class="py-5 legal">
+  <div class="container">
+    <div class="prose">
+
+
 
 <p>
 These Terms and Conditions (“Terms”) govern your access to and use of all products, applications, websites and services
@@ -38,9 +132,9 @@ By accessing or using any of our services, you agree to be legally bound by thes
 If you do not agree to these Terms, you must not use our services.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">1. About Mi Wallet LTD</h2>
+<h2>1. About Mi Wallet LTD</h2>
 
 <p>
 Mi Wallet LTD is a registered company operating in the Republic of Malawi.
@@ -59,9 +153,9 @@ We provide digital business systems and technology services including:
 <li>Technical support, maintenance and consulting</li>
 </ul>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">2. Definitions</h2>
+<h2>2. Definitions</h2>
 
 <ul>
 <li><strong>“Service”</strong> means any system, platform, software, website, API or support service provided by Mi Wallet LTD.</li>
@@ -69,9 +163,9 @@ We provide digital business systems and technology services including:
 <li><strong>“Customer Data”</strong> means all data entered, uploaded or generated by you when using our systems.</li>
 </ul>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">3. Account Registration and Access</h2>
+<h2>3. Account Registration and Access</h2>
 
 <p>
 To use certain services, you may be required to create an account.
@@ -88,9 +182,9 @@ You agree that:
 You must notify us immediately if you believe your account has been compromised.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">4. Use of Our Systems</h2>
+<h2>4. Use of Our Systems</h2>
 
 <p>
 You agree to use our services only for lawful business and operational purposes.
@@ -104,9 +198,9 @@ You must not:
 <li>Resell, copy, modify or distribute our software without written permission</li>
 </ul>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">5. Financial, Credit and Loan Systems Disclaimer</h2>
+<h2>5. Financial, Credit and Loan Systems Disclaimer</h2>
 
 <p>
 Our credit, lending and loan management systems are tools for record keeping and operational management.
@@ -126,9 +220,9 @@ Mi Wallet LTD:
 You are solely responsible for complying with all financial, lending, consumer protection and regulatory laws applicable in your jurisdiction.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">6. Customer Data and Ownership</h2>
+<h2>6. Customer Data and Ownership</h2>
 
 <p>
 All data you store in our systems remains your property.
@@ -145,9 +239,9 @@ You are fully responsible for:
 <li>Informing your customers about how their data is used</li>
 </ul>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">7. Hosting, Backups and Availability</h2>
+<h2>7. Hosting, Backups and Availability</h2>
 
 <p>
 We make reasonable efforts to keep our services available and reliable.
@@ -169,9 +263,9 @@ System availability may be affected by:
 You are strongly encouraged to maintain your own independent backups where possible.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">8. Development Services (Web & App Development)</h2>
+<h2>8. Development Services (Web & App Development)</h2>
 
 <p>
 For custom development services provided by Mi Wallet LTD:
@@ -183,9 +277,9 @@ For custom development services provided by Mi Wallet LTD:
 <li>Ownership and licensing of developed software shall be governed by the applicable project agreement</li>
 </ul>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">9. Fees, Subscriptions and Payments</h2>
+<h2>9. Fees, Subscriptions and Payments</h2>
 
 <p>
 Certain services may require payment or subscription.
@@ -205,9 +299,9 @@ You agree to:
 Failure to pay may result in suspension or termination of your access.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">10. Suspension and Termination</h2>
+<h2>10. Suspension and Termination</h2>
 
 <p>
 We may suspend or terminate your access if:
@@ -223,9 +317,9 @@ We may suspend or terminate your access if:
 Upon termination, your access to the system may be disabled.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">11. Intellectual Property</h2>
+<h2>11. Intellectual Property</h2>
 
 <p>
 All software, systems, designs, documentation, logos and branding provided by Mi Wallet LTD remain our intellectual property unless otherwise agreed in writing.
@@ -235,17 +329,17 @@ All software, systems, designs, documentation, logos and branding provided by Mi
 You receive a limited, non-exclusive right to use our systems during your subscription or service period.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">12. Confidentiality</h2>
+<h2>12. Confidentiality</h2>
 
 <p>
 Both parties agree to maintain the confidentiality of any non-public business, technical or operational information exchanged during the provision of services.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">13. Limitation of Liability</h2>
+<h2>13. Limitation of Liability</h2>
 
 <p>
 To the maximum extent permitted by law, Mi Wallet LTD shall not be liable for:
@@ -263,9 +357,9 @@ To the maximum extent permitted by law, Mi Wallet LTD shall not be liable for:
 Our services are provided on an “as is” and “as available” basis.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">14. Indemnity</h2>
+<h2>14. Indemnity</h2>
 
 <p>
 You agree to indemnify and hold Mi Wallet LTD harmless against any claims, damages, losses or legal actions arising from:
@@ -277,54 +371,103 @@ You agree to indemnify and hold Mi Wallet LTD harmless against any claims, damag
 <li>Your handling of customer or borrower data</li>
 </ul>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">15. Data Protection and Privacy</h2>
+<h2>15. Data Protection and Privacy</h2>
 
 <p>
 Your use of our services is also governed by our Privacy Policy.
 Please review our Privacy Policy to understand how we process personal data.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">16. Changes to the Terms</h2>
+<h2>16. Changes to the Terms</h2>
 
 <p>
 We may update these Terms from time to time.
 Updated versions will be published on our website and will become effective immediately upon publication.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">17. Governing Law</h2>
+<h2>17. Governing Law</h2>
 
 <p>
 These Terms shall be governed by and interpreted in accordance with the laws of the Republic of Malawi.
 </p>
 
-<hr class="my-4">
+<hr>
 
-<h2 class="h4 fw-bold mt-4">18. Contact Information</h2>
+<h2>18. Contact Information</h2>
 
 <p>
 For any questions regarding these Terms, please contact us:
 </p>
 
 <ul>
-<li>Email: <a href="mailto:support@miwalletmw.com">support@miwalletmw.com</a></li>
-<li>Phone / WhatsApp: +265 991 448 707</li>
-<li>Website: <a href="https://miwalletmw.com" target="_blank">https://miwalletmw.com</a></li>
+<li>Email: <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="#"></a></li>
+<li>Phone / WhatsApp: <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="#"></a></li>
+<li>Website: <a data-cfg="company.website" data-cfg-href="company.website" href="#"></a></li>
 </ul>
 
-<p class="mt-3">
+<p>
 Mi Wallet LTD – Registered and operating in Malawi.
 </p>
-
-</div>
+    </div>
+  </div>
 </section>
 
+</main>
+
+<footer class="site-footer bg-dark text-white-50 pt-5 pb-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <p class="footer-name">Mi Wallet Limited</p>
+        <p>Software, payments and infrastructure, built in Malawi. Registered in 2021.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Products</h2>
+        <ul>
+          <li><a href="omnipos">OmniPOS</a></li>
+          <li><a href="inventory">Inventory and RFID</a></li>
+          <li><a href="carhire">Car Hire System</a></li>
+          <li><a href="credit">Mi Wallet Credit</a></li>
+          <li><a href="mpay">Mi Wallet Pay</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Company</h2>
+        <ul>
+          <li><a href="about">About us</a></li>
+          <li><a href="about#journey">Our journey</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="downloads">Downloads</a></li>
+          <li><a href="expired">Renew a subscription</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h2 class="footer-head">Contact</h2>
+        <address>
+          <span data-cfg="company.address"></span><br>
+          <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="phone.secondary" data-cfg-href="phone.secondary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a><br>
+          <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="contact"></a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; <span data-year></span> Mi Wallet Limited. All rights reserved.</p>
+      <p><a href="privacy">Privacy policy</a><a href="terms">Terms of service</a></p>
+    </div>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
 
 </body>
 </html>

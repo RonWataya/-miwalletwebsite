@@ -2,246 +2,247 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Wallet Pay - Seamless Payments</title>
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Wallet Pay | QR, NFC and tag payments</title>
+  <meta name="description" content="Mi Wallet Pay lets people pay from their phone by QR code, NFC tap or a physical tag. In development, with support from the World Bank, UNDP, NBM and NVIDIA.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
 
-  <!-- Bootstrap 5 CSS -->
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Navbar */
-    .navbar-brand img {
-      height: 48px; /* slightly bigger logo */
-    }
-/* Custom Navbar */
-.custom-navbar {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  transition: background 0.3s ease-in-out;
-}
-
-.navbar-brand .brand-text {
-  font-size: 1.1rem;
-  color: #1d4ed8;
-}
-
-.navbar-nav .nav-link {
-  font-weight: 500;
-  color: #333 !important;
-  padding: 0.7rem 1rem;
-  position: relative;
-  transition: color 0.3s;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #1d4ed8 !important;
-}
-
-.navbar-nav .nav-link.active {
-  color: #1d4ed8 !important;
-  font-weight: 600;
-}
-
-.navbar-nav .nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 30%;
-  width: 40%;
-  height: 2px;
-  background: #1d4ed8;
-  border-radius: 2px;
-}
-
-    /* Hero Section */
-    .hero-section {
-      background: url("/img/bg.webp") no-repeat center center/cover;
-      padding: 10rem 0;
-      color: white;
-      position: relative;
-    }
-
-    .hero-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.782);
-    }
-    .hero-section .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Features */
-    .card-feature {
-      min-height: 240px;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-    }
-    .card-feature:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
-    }
-    .card-feature img {
-      width: 110px; /* bigger circular icons */
-      height: 110px;
-      object-fit: cover;
-    }
-
-    /* Advanced Features icons */
-    .feature-icon {
-      width: 80px; /* bigger than before */
-      height: 80px;
-      object-fit: cover;
-    }
-
-    /* QR demo / illustration images */
-    .card img.img-fluid {
-      max-height: 280px; /* larger images */
-      object-fit: cover;
-    }
-
-    /* CTA Gradient */
-    .bg-gradient-blue {
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    }
-
-    /* Footer */
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <!-- Site styles -->
+  <link href="css/site.css" rel="stylesheet">
 </head>
-<body>
+<body data-page="mpay">
 
-  <!-- Navigation Bar -->
- <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm custom-navbar">
+<a class="skip-link btn btn-dark" href="#main">Skip to content</a>
+
+<div class="topbar bg-dark d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <ul class="topbar-list">
+      <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+      <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+      <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-cfg="company.address"></span></li>
+    </ul>
+    <ul class="topbar-list">
+      <li><a href="expired">Renew subscription</a></li>
+      <li><a href="downloads">Download our apps</a></li>
+    </ul>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-xl site-nav sticky-top bg-body" aria-label="Main">
   <div class="container">
-    <a class="navbar-brand fw-bold d-flex align-items-center" href="index">
-      <img src="img/Miwallet.webp" alt="Mi Wallet LTD Logo" class="me-2" style="height:45px;">
-      
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <a class="navbar-brand" href="index"><img src="img/Miwallet.webp" alt="Mi Wallet Limited home" width="120" height="40"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Open menu">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="omnipos">OmniPOS</a></li>
-         <li class="nav-item"><a class="nav-link" href="credit">Credit</a></li>
-        <li class="nav-item"><a class="nav-link active" href="mpay">Mi Wallet Pay</a></li>
-        <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="downloads">Downloads</a></li>
-        <li class="nav-item ms-lg-3">
-          <a href="contact" class="btn btn-primary px-3 py-2 rounded-pill shadow-sm">
-            Get Started
-          </a>
-        </li>
-      </ul>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="siteNav" aria-labelledby="siteNavLabel">
+      <div class="offcanvas-header">
+        <img id="siteNavLabel" src="img/Miwallet.webp" alt="Mi Wallet Limited" height="36">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+      </div>
+
+      <div class="offcanvas-body align-items-xl-center">
+        <ul class="navbar-nav mx-xl-auto">
+          <li class="nav-item"><a class="nav-link" href="index" data-nav="home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-nav="omnipos carhire mpay credit">Products</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <ul class="mega-list">
+                  <li><a class="mega-item" href="omnipos" data-nav="omnipos">
+                    <span class="mega-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">OmniPOS</span><span class="mega-desc">Point of sale, stock and VAT filing for retail</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="inventory" data-nav="inventory">
+                    <span class="mega-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Inventory and RFID</span><span class="mega-desc">Stock control from one shop to a warehouse</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="carhire" data-nav="carhire">
+                    <span class="mega-icon"><i class="bi bi-car-front" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Car Hire Management System</span><span class="mega-desc">Every hire on one record</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="credit" data-nav="credit">
+                    <span class="mega-icon"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Credit</span><span class="mega-desc">Track credit, loans and repayments</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="mpay" data-nav="mpay">
+                    <span class="mega-icon"><i class="bi bi-qr-code-scan" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Pay</span><span class="mega-desc">QR, NFC and tag payments, in development</span></span>
+                  </a></li>
+                </ul>
+                <div class="mega-feature d-none d-xl-flex">
+                  <span class="badge rounded-pill text-bg-warning align-self-start">In development</span>
+                  <p class="mega-feature-title">RFID warehouse management</p>
+                  <p class="mega-feature-text">Count a whole aisle by walking it. Deliveries update your stock as they arrive.</p>
+                  <a class="btn btn-sm btn-light align-self-start" href="inventory#rfid">How RFID works</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="inventory" data-nav="inventory">Inventory &amp; RFID</a></li>
+          <li class="nav-item"><a class="nav-link" href="services" data-nav="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about" data-nav="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="downloads" data-nav="downloads">Downloads</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn btn-outline-primary" href="contact" data-nav="contact">Contact us</a>
+          <a class="btn btn-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+        </div>
+
+        <ul class="offcanvas-contact d-xl-none">
+          <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+          <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+          <li><i class="bi bi-arrow-repeat" aria-hidden="true"></i><a href="expired">Renew subscription</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
 
-  <!-- Hero Section -->
-  <header class="hero-section text-center d-flex align-items-center">
-    <div class="container">
-      <h1 class="fw-bold display-4">Experience the Future of Payments</h1>
-      <p class="lead my-4">
-        Mi Wallet Pay is a seamless, secure, and integrated payment solution. Pay, recharge, and withdraw effortlessly — anytime, anywhere.
-      </p>
-      <a href="#features" class="btn btn-primary btn-lg shadow-lg">Discover Features</a>
-    </div>
-  </header>
+<main id="main">
 
-  <!-- Key Features -->
-  <section id="features" class="py-5">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5">Your Money, Your Way</h2>
-      <div class="row g-4 text-center">
-        <div class="col-md-4">
-          <div class="card h-100 p-4 shadow-sm card-feature rounded-4">
-            <img src="img/points.jpg" class="d-block mx-auto mb-3 rounded-circle" alt="Points Currency">
-            <h5 class="fw-bold">Points as Currency</h5>
-            <p class="text-muted">Simple system: <strong>1 Point = 1 MWK</strong>. Easy to track, simple to spend.</p>
-          </div>
+<header class="hero bg-dark text-white hero-page">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-warning">In development</p>
+        <h1>Pay from your phone, whatever phone you carry.</h1>
+        <p class="lead">Mi Wallet Pay is our payment platform and the project the company was founded on. Scan a QR code, tap your phone, or tap a tag: three ways to pay, so almost anyone can be served.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="#how">How it works</a>
+          <a class="btn btn-outline-light btn-lg" href="contact">Join the pilot</a>
         </div>
-        <div class="col-md-4">
-          <div class="card h-100 p-4 shadow-sm card-feature rounded-4">
-            <img src="img/b2b.webp" class="d-block mx-auto mb-3 rounded-circle" alt="Recharge Icon">
-            <h5 class="fw-bold">Recharge with Vouchers</h5>
-            <p class="text-muted">Load your wallet easily with <strong>bank cards or Airtel Money</strong> vouchers.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100 p-4 shadow-sm card-feature rounded-4">
-            <img src="img/airtel.webp" class="d-block mx-auto mb-3 rounded-circle" alt="Withdraw Icon">
-            <h5 class="fw-bold">Withdraw to Airtel Money</h5>
-            <p class="text-muted">Cash out your points instantly into your <strong>Airtel Money account</strong>.</p>
-          </div>
+      </div>
+      <div class="col-lg-5">
+        <!-- Final photo: img/mpay-app.png -->
+<img src="img/front.jpg" alt="Mi Wallet Pay app on a phone showing a wallet balance and a QR code" class="shot">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="how" class="py-5">
+  <div class="container">
+    <div class="band-head">
+      <h2>Three ways to pay</h2>
+      <p>Not every customer carries the same phone. Mi Wallet Pay offers three methods so a shop can take payment from nearly everyone who walks in.</p>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-4">
+        <!-- Final photo: img/mpay-qr.jpg -->
+<img src="img/front.jpg" alt="Customer scanning a shop's QR code with a phone" class="shot" loading="lazy">
+        <h3 class="mt-4">Scan a QR code</h3>
+        <p>The customer scans the shop's code with the app and confirms the amount. It works on any smartphone with a camera.</p>
+      </div>
+      <div class="col-md-4">
+        <!-- Final photo: img/mpay-nfc.jpg -->
+<img src="img/front.jpg" alt="Phone being tapped against a payment terminal" class="shot" loading="lazy">
+        <h3 class="mt-4">Tap your phone with NFC</h3>
+        <p>On phones that support NFC, the customer taps the phone against the terminal. No code to scan, no card to hand over.</p>
+      </div>
+      <div class="col-md-4">
+        <!-- Final photo: img/mpay-tag.jpg -->
+<img src="img/front.jpg" alt="Physical payment tag on a key ring being tapped at a counter" class="shot" loading="lazy">
+        <h3 class="mt-4">Tap a physical tag</h3>
+        <p>For customers whose handset supports neither, a physical tag linked to their wallet does the same job with a single tap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h2 class="mb-4">How a payment works, step by step</h2>
+        <ol class="steps">
+          <li><h3>Open a wallet</h3><p>A customer registers in the Mi Wallet Pay app and gets their own wallet.</p></li>
+          <li><h3>Top up by card</h3><p>The wallet is loaded with a Visa or Mastercard through our own payment gateway.</p></li>
+          <li><h3>Pay at the counter</h3><p>At a shop, the customer pays by QR code, NFC or tag, whichever suits their handset.</p></li>
+          <li><h3>The sale is recorded</h3><p>Mi Wallet Pay is designed to connect directly with OmniPOS, so a wallet payment is recorded against the sale like any other payment method.</p></li>
+        </ol>
+      </div>
+      <div class="col-lg-5">
+        <div class="card card-body shadow-sm">
+          <h3>Support behind the platform</h3>
+          <p>The work on Mi Wallet Pay has been supported by the World Bank through the Digital Malawi Project, implemented by the Public Private Partnership Commission; by a USD 40,000 grant from UNDP Malawi under its GA Programme; by National Bank of Malawi through the NBM Innovation Jam, where we were among the winners; and by the NVIDIA Inception Program.</p>
+          <p class="mb-0"><a href="about#journey">Read our journey</a></p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Advanced Features -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5">Smart, Secure & Convenient</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card h-100 p-4 shadow-sm rounded-4">
-            <div class="d-flex align-items-center mb-3">
-              <img src="img/qr.png" class="rounded-circle me-3 feature-icon" alt="QR Payment">
-              <h5 class="fw-bold mb-0">QR & NFC Payments</h5>
-            </div>
-            <p class="text-muted">Pay instantly by scanning a QR code or tapping your phone via NFC.</p>
-            <img src="img/qr-demo.jpg" class="img-fluid rounded-3 shadow-sm" alt="QR Code Payment Example">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card h-100 p-4 shadow-sm rounded-4">
-            <div class="d-flex align-items-center mb-3">
-              <img src="img/payfinger.jpg" class="rounded-circle me-3 feature-icon" alt="Fingerprint Icon">
-              <h5 class="fw-bold mb-0">Fingerprint Payment</h5>
-            </div>
-            <p class="text-muted">Link your fingerprint for ultimate convenience — no phone or card required. Just touch and pay securely through OmniPOS.</p>
-          </div>
-        </div>
+<section class="py-5 bg-dark text-white band-dark">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <h2>Accept Mi Wallet Pay at your shop</h2>
+        <p>We are looking for merchants to work with as the platform is completed. If you would like your shop to be among the first to accept Mi Wallet Pay, tell us about your business.</p>
+      </div>
+      <div class="col-lg-5"><div class="actions"><a class="btn btn-primary btn-lg" href="contact">Join the pilot</a></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer bg-dark text-white-50 pt-5 pb-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <p class="footer-name">Mi Wallet Limited</p>
+        <p>Software, payments and infrastructure, built in Malawi. Registered in 2021.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Products</h2>
+        <ul>
+          <li><a href="omnipos">OmniPOS</a></li>
+          <li><a href="inventory">Inventory and RFID</a></li>
+          <li><a href="carhire">Car Hire System</a></li>
+          <li><a href="credit">Mi Wallet Credit</a></li>
+          <li><a href="mpay">Mi Wallet Pay</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Company</h2>
+        <ul>
+          <li><a href="about">About us</a></li>
+          <li><a href="about#journey">Our journey</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="downloads">Downloads</a></li>
+          <li><a href="expired">Renew a subscription</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h2 class="footer-head">Contact</h2>
+        <address>
+          <span data-cfg="company.address"></span><br>
+          <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="phone.secondary" data-cfg-href="phone.secondary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a><br>
+          <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="contact"></a>
+        </address>
       </div>
     </div>
-  </section>
-
-  <!-- Download CTA -->
-  <section class="py-5 bg-gradient-blue text-white text-center">
-    <div class="container">
-      <h2 class="fw-bold mb-3">Download the Mi Wallet Pay App</h2>
-      <p class="lead mb-4">Join thousands already experiencing effortless payments.</p>
-      <a href="https://play.google.com/store/apps/details?id=com.miwalletpay" target="_blank" class="btn btn-light btn-lg shadow-sm">
-        <img src="img/google.png" width="100" class="me-2" alt="Google Play">
-      </a>
+    <div class="footer-base">
+      <p>&copy; <span data-year></span> Mi Wallet Limited. All rights reserved.</p>
+      <p><a href="privacy">Privacy policy</a><a href="terms">Terms of service</a></p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white-50 py-4">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 Mi Wallet LTD. All Rights Reserved.</p>
-      <p class="mb-0"><a href="privacy" class="text-white-50">Privacy Policy</a></p>
-      <p class="mb-0"><a href="terms" class="text-white-50">Terms of Service</a></p>
-    </div>
-  </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
 
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

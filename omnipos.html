@@ -1,485 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OmniPOS  Know Your Business. Control Your Money.</title>
-
-  <!-- Favicon -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniPOS | Point of sale, inventory and MRA VAT filing</title>
+  <meta name="description" content="OmniPOS is point of sale, inventory and VAT filing through MRA's Electronic Invoicing System, for retailers in Malawi. Works offline, on any device.">
   <link rel="icon" type="image/png" href="img/favicon.png">
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="css/omnipos.css" rel="stylesheet">
+  <!-- Site styles -->
+  <link href="css/site.css" rel="stylesheet">
 </head>
+<body data-page="omnipos">
 
-<body>
+<a class="skip-link btn btn-dark" href="#main">Skip to content</a>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+<div class="topbar bg-dark d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <ul class="topbar-list">
+      <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+      <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+      <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-cfg="company.address"></span></li>
+    </ul>
+    <ul class="topbar-list">
+      <li><a href="expired">Renew subscription</a></li>
+      <li><a href="downloads">Download our apps</a></li>
+    </ul>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-xl site-nav sticky-top bg-body" aria-label="Main">
   <div class="container">
-    <a class="navbar-brand fw-bold d-flex align-items-center" href="index">
-      <img src="img/Miwallet.webp" alt="Mi Wallet LTD Logo" class="me-3">
-    </a>
+    <a class="navbar-brand" href="index"><img src="img/Miwallet.webp" alt="Mi Wallet Limited home" width="120" height="40"></a>
 
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Open menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-        <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="omnipos">OmniPOS</a></li>
-         <li class="nav-item"><a class="nav-link" href="credit">Credit</a></li>
-        <li class="nav-item"><a class="nav-link" href="mpay">Mi Wallet Pay</a></li>
-        <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="downloads">Downloads</a></li>
-        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-          <a href="contact" class="btn btn-primary px-4 py-2 rounded-pill fw-600 shadow-sm">
-            Get Started
-          </a>
-        </li>
-      </ul>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="siteNav" aria-labelledby="siteNavLabel">
+      <div class="offcanvas-header">
+        <img id="siteNavLabel" src="img/Miwallet.webp" alt="Mi Wallet Limited" height="36">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+      </div>
+
+      <div class="offcanvas-body align-items-xl-center">
+        <ul class="navbar-nav mx-xl-auto">
+          <li class="nav-item"><a class="nav-link" href="index" data-nav="home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-nav="omnipos carhire mpay credit">Products</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <ul class="mega-list">
+                  <li><a class="mega-item" href="omnipos" data-nav="omnipos">
+                    <span class="mega-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">OmniPOS</span><span class="mega-desc">Point of sale, stock and VAT filing for retail</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="inventory" data-nav="inventory">
+                    <span class="mega-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Inventory and RFID</span><span class="mega-desc">Stock control from one shop to a warehouse</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="carhire" data-nav="carhire">
+                    <span class="mega-icon"><i class="bi bi-car-front" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Car Hire Management System</span><span class="mega-desc">Every hire on one record</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="credit" data-nav="credit">
+                    <span class="mega-icon"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Credit</span><span class="mega-desc">Track credit, loans and repayments</span></span>
+                  </a></li>
+                  <li><a class="mega-item" href="mpay" data-nav="mpay">
+                    <span class="mega-icon"><i class="bi bi-qr-code-scan" aria-hidden="true"></i></span>
+                    <span><span class="mega-title">Mi Wallet Pay</span><span class="mega-desc">QR, NFC and tag payments, in development</span></span>
+                  </a></li>
+                </ul>
+                <div class="mega-feature d-none d-xl-flex">
+                  <span class="badge rounded-pill text-bg-warning align-self-start">In development</span>
+                  <p class="mega-feature-title">RFID warehouse management</p>
+                  <p class="mega-feature-text">Count a whole aisle by walking it. Deliveries update your stock as they arrive.</p>
+                  <a class="btn btn-sm btn-light align-self-start" href="inventory#rfid">How RFID works</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="inventory" data-nav="inventory">Inventory &amp; RFID</a></li>
+          <li class="nav-item"><a class="nav-link" href="services" data-nav="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about" data-nav="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="downloads" data-nav="downloads">Downloads</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn btn-outline-primary" href="contact" data-nav="contact">Contact us</a>
+          <a class="btn btn-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Try OmniPOS</a>
+        </div>
+
+        <ul class="offcanvas-contact d-xl-none">
+          <li><i class="bi bi-telephone" aria-hidden="true"></i><a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a></li>
+          <li><i class="bi bi-envelope" aria-hidden="true"></i><a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a></li>
+          <li><i class="bi bi-arrow-repeat" aria-hidden="true"></i><a href="expired">Renew subscription</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero-section d-flex align-items-center">
-  <div class="container text-center">
-  <h1 class="hero-title mb-4">
-      Know Your Business.<br>
-      Control Your Money.<br>
-      Grow With Confidence.
-    </h1>
+<main id="main">
 
-  <p class="hero-subtitle mb-5">
-      OmniPOS is a <strong>powerful Point of Sale (POS)</strong> and business companion
-      that helps you sell easily and clearly see
-      <strong>money coming in, money going out, and your balance</strong> —
-      even if you have never used software before.
-    </p>
-
-    <p class="hero-secondary-text mb-5">
-      Works on phone, tablet, or computer. Works even without internet.
-    </p>
-
-    <a href="#why" class="btn btn-primary btn-lg rounded-pill shadow-lg px-5">
-      See How OmniPOS Helps
-    </a>
+<header class="hero bg-dark text-white hero-page">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-primary">In commercial use in Blantyre</p>
+        <h1>Know what your shop made today, and what it owes.</h1>
+        <p class="lead">OmniPOS is point of sale, inventory and VAT filing for retail. Record what you buy and what you sell, and it tells you the rest, even if you have never used business software before.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Create a free account</a>
+          <a class="btn btn-outline-light btn-lg" href="#pricing">See pricing</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <!-- Final photo: img/omnipos-devices.jpg -->
+<img src="img/front.jpg" alt="OmniPOS running on a phone and a laptop side by side at a shop counter" class="shot">
+      </div>
+    </div>
   </div>
 </header>
 
-
-<!-- WHY OMNIPOS -->
-<section id="why" class="py-6">
+<section class="py-5">
   <div class="container">
-    <h2 class="text-center fw-bold mb-2 section-title">
-      Why Business Owners Choose OmniPOS
-    </h2>
-    <p class="text-center text-muted mb-5 section-subtitle">
-      Trusted by thousands of small business owners across the region
-    </p>
+    <div class="band-head">
+      <h2>Built for the way shops here trade</h2>
+      <p>Systems designed elsewhere assume reliable electricity, reliable internet and expensive hardware. OmniPOS does not.</p>
+    </div>
+    <div class="detail-grid">
+      <div><h3>It keeps selling when the internet drops</h3><p>The till works offline and saves every sale on the device. When the connection returns, everything syncs to your account.</p></div>
+      <div><h3>It runs on the device you already have</h3><p>A phone, a tablet or a computer can be your till, down to a basic smartphone. No special machine is needed to start.</p></div>
+      <div><h3>No accounting knowledge needed</h3><p>OmniPOS speaks in plain terms: money in, money out and your balance. Every sale, payment, refund and expense is recorded as it happens.</p></div>
+      <div><h3>VAT filed straight to MRA</h3><p>OmniPOS works out the VAT on your sales and files the return directly through MRA's Electronic Invoicing System, without a separate fiscal device.</p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-        <div class="feature-card h-100 p-5 rounded-3 text-center">
-          <div class="feature-icon mb-4">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="20" stroke="#1d4ed8" stroke-width="2" opacity="0.2"/>
-              <path d="M24 18V30M18 24H30" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h5 class="fw-bold mb-3">Works Even Without Internet</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Keep working even when internet is unavailable. OmniPOS saves everything and syncs later. Record and manage your inventory both offline and online it syncs later
-          </p>
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h2 class="mb-3">A trading day with OmniPOS, step by step</h2>
+        <p class="mb-5 lead text-body-secondary">What happens from setting up your shop to filing your VAT, in the order you will do it.</p>
+        <ol class="steps">
+          <li>
+            <h3>Set up your shop</h3>
+            <p>Create your account, enter your business details and set your VAT rate. Add the staff who will use the till; each person signs in with their own login, so every sale shows who made it.</p>
+          </li>
+          <li>
+            <h3>Add your products</h3>
+            <p>Enter each item with its barcode, buying price and selling price. From then on, scanning or searching finds it instantly at the till. <a href="inventory">How inventory works</a></p>
+          </li>
+          <li>
+            <h3>Record stock as it arrives</h3>
+            <p>Each delivery is entered with its supplier, quantity and cost. OmniPOS keeps count of your stock and of how much money you have put into it.</p>
+          </li>
+          <li>
+            <h3>Sell at the till</h3>
+            <p>Scan or search for items, and take payment by cash, Airtel Money, TNM Mpamba, card or bank transfer. Each payment is recorded against its method, so the cash drawer and the mobile money balances can be checked separately at the end of the day.</p>
+          </li>
+          <li>
+            <h3>Give credit where you need to</h3>
+            <p>Customers who buy on credit get their own running account. Payments they bring in clear their oldest debts first, and you can show them exactly what they owe.</p>
+          </li>
+          <li>
+            <h3>Keep an eye on stock</h3>
+            <p>Every sale reduces the stock count on its own. OmniPOS warns you when items are running low or nearing expiry, and records damaged or expired goods as losses.</p>
+          </li>
+          <li>
+            <h3>Close the day knowing where you stand</h3>
+            <p>See how much money came in, how much went out, your balance, what sold fast and what may run out soon. The profit on each item is already calculated.</p>
+          </li>
+          <li>
+            <h3>File your VAT with MRA</h3>
+            <p>Because every sale is already recorded with its VAT, OmniPOS can file the return directly through MRA's Electronic Invoicing System. The figures you file are the figures your shop actually traded.</p>
+          </li>
+          <li>
+            <h3>Ask the business companion what it means</h3>
+            <p>The built-in assistant reads your sales, stock and money records and explains them in plain words. It can produce financial statements, a balance sheet and projections, point out unusual changes early, and answer questions you ask about your own business. It uses only your data.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="col-lg-5 media-stack">
+        <!-- Final photo: img/omnipos-till-payment.png -->
+<img src="img/front.jpg" alt="OmniPOS till screen mid-sale, with payment method options visible" class="shot" loading="lazy">
+        <div class="mt-4"><!-- Final photo: img/omnipos-day-summary.png -->
+<img src="img/front.jpg" alt="End-of-day summary: money in, money out, balance and top-selling items" class="shot" loading="lazy"></div>
+        <div class="mt-4"><!-- Final photo: img/omnipos-mra-eis.png -->
+<img src="img/front.jpg" alt="MRA Electronic Invoicing System filing confirmation inside OmniPOS" class="shot" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <h2>The OmniPOS Cashier app</h2>
+        <p>For shops that sell from an Android phone or tablet, the OmniPOS Cashier app puts the till in your hand. It works with the same account as the web version, so sales made on the phone show up in your reports straight away.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="downloads">Download the Cashier app</a>
         </div>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-card h-100 p-5 rounded-3 text-center">
-          <div class="feature-icon mb-4">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="20" stroke="#1d4ed8" stroke-width="2" opacity="0.2"/>
-              <path d="M24 16V32M16 24H32" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h5 class="fw-bold mb-3">No Accounting Knowledge Needed</h5>
-          <p class="text-muted mb-0 lh-lg">
-            You don't need to understand accounting terms. OmniPOS shows clear information like money in, money out, and balance.Every sale, payment, refund, and expense is recorded automatically 
-          </p>
-        </div>
+      <div class="col-lg-6">
+        <!-- Final photo: img/omnipos-cashier-app.png -->
+<img src="img/front.jpg" alt="OmniPOS Cashier app on an Android phone" class="shot" loading="lazy">
       </div>
+    </div>
+  </div>
+</section>
 
-          <div class="col-md-6 col-lg-4">
-        <div class="feature-card h-100 p-5 rounded-3 text-center">
-          <div class="feature-icon mb-4">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="20" stroke="#1d4ed8" stroke-width="2" opacity="0.2"/>
-              <path d="M24 18V30M18 24H30" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h5 class="fw-bold mb-3">Intelligent Assistant</h5>
-          <p class="text-muted mb-0 lh-lg">
-           On a button click OmniPOS will generate you financial statements, balance sheet and financial projections for your business with our embedded intelligent feature
-          </p>
+<section id="pricing" class="py-5 bg-light">
+  <div class="container">
+    <div class="band-head">
+      <h2>Pricing</h2>
+      <p>Monthly plans with no hidden fees and no long contract. Inventory management is included in every plan.</p>
+    </div>
+    <div class="plans">
+      <div class="plan card h-100 shadow-sm">
+        <h3>Standard</h3>
+        <p class="for">For a single shop getting started</p>
+        <div class="price" data-cfg="pricing.omniposStandard" data-cfg-format="mwk"></div>
+        <p class="per">per month</p>
+        <ul>
+          <li>Up to 2 users</li>
+          <li>Point of sale and stock tracking</li>
+          <li>Money in and money out</li>
+          <li>Credit accounts for customers</li>
+          <li>Basic insights</li>
+        </ul>
+        <a class="btn btn-outline-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Start with Standard</a>
+      </div>
+      <div class="plan card h-100 shadow-sm text-bg-primary">
+        <h3>Pro</h3>
+        <p class="for">For busy shops with a team</p>
+        <div class="price" data-cfg="pricing.omniposPro" data-cfg-format="mwk"></div>
+        <p class="per">per month</p>
+        <ul>
+          <li>Up to 6 users</li>
+          <li>Everything in Standard</li>
+          <li>Business insights</li>
+          <li>Guidance and reports</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn btn-light" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Start with Pro</a>
+      </div>
+      <div class="plan card h-100 shadow-sm">
+        <h3>Business</h3>
+        <p class="for">For supermarkets and multi-till stores</p>
+        <div class="price" data-cfg="pricing.omniposBusiness" data-cfg-format="mwk"></div>
+        <p class="per">per month</p>
+        <ul>
+          <li>Unlimited users</li>
+          <li>Everything in Pro</li>
+          <li>Advanced insights and business intelligence</li>
+          <li>AI business companion</li>
+        </ul>
+        <a class="btn btn-outline-primary" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Start with Business</a>
+      </div>
+    </div>
+    <p class="plan-note">Only need to track credit and loans? <a href="credit">Mi Wallet Credit</a> starts at <span data-cfg="pricing.credit" data-cfg-format="mwk"></span> a month. Subscription ended? <a href="expired">Renew here</a>.</p>
+  </div>
+</section>
+
+<section class="py-5 bg-dark text-white band-dark">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <h2>See it working in your own shop</h2>
+        <p>Create an account and try OmniPOS with your own products. If you would rather have help, we are in Blantyre and can set it up at your premises with you and your staff.</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="contact" data-cfg-href="links.omnipos" target="_blank" rel="noopener">Create a free account</a>
+          <a class="btn btn-outline-light btn-lg" href="contact">Ask for a set-up visit</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- POS CORE -->
-<section class="py-6">
+</main>
+
+<footer class="site-footer bg-dark text-white-50 pt-5 pb-4">
   <div class="container">
-    <h2 class="text-center fw-bold mb-2 section-title">
-      OmniPOS – Your Point of Sale
-    </h2>
-    <p class="text-center text-muted mb-5 section-subtitle">
-      A powerful Point of Sale that just works.
-    </p>
-
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-card h-100 p-5 rounded-3 text-center">
-          <div class="feature-badge mb-4">⚡</div>
-          <h5 class="fw-bold mb-3">Fast & Simple Selling</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Add items, scan barcodes, choose payment method, and complete sales in seconds.
-          </p>
-        </div>
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <p class="footer-name">Mi Wallet Limited</p>
+        <p>Software, payments and infrastructure, built in Malawi. Registered in 2021.</p>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-card h-100 p-5 rounded-3 text-center">
-          <div class="feature-badge mb-4">📱</div>
-          <h5 class="fw-bold mb-3">Works Offline</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Continue selling even when internet is down. Everything syncs automatically later.
-          </p>
-        </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Products</h2>
+        <ul>
+          <li><a href="omnipos">OmniPOS</a></li>
+          <li><a href="inventory">Inventory and RFID</a></li>
+          <li><a href="carhire">Car Hire System</a></li>
+          <li><a href="credit">Mi Wallet Credit</a></li>
+          <li><a href="mpay">Mi Wallet Pay</a></li>
+        </ul>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-card h-100 p-5 rounded-3 text-center">
-          <div class="feature-badge mb-4">💳</div>
-          <h5 class="fw-bold mb-3">All Payments Supported</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Cash, Airtel Money, TNM Mpamba, cards, and bank transfers — all recorded in one place.
-          </p>
-        </div>
+      <div class="col-6 col-lg-2">
+        <h2 class="footer-head">Company</h2>
+        <ul>
+          <li><a href="about">About us</a></li>
+          <li><a href="about#journey">Our journey</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="downloads">Downloads</a></li>
+          <li><a href="expired">Renew a subscription</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h2 class="footer-head">Contact</h2>
+        <address>
+          <span data-cfg="company.address"></span><br>
+          <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="phone.secondary" data-cfg-href="phone.secondary" data-cfg-scheme="tel" href="contact"></a><br>
+          <a data-cfg="email.info" data-cfg-href="email.info" data-cfg-scheme="mailto" href="contact"></a><br>
+          <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="contact"></a>
+        </address>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- DAILY VISIBILITY -->
-<section class="py-6 bg-light-subtle">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-5 section-title">
-      With OmniPOS, You Always Know:
-    </h2>
-
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="visibility-card p-6 rounded-3">
-          <ul class="list-unstyled mb-0">
-            <li class="visibility-item mb-4">
-              <span class="check-icon me-3">✓</span>
-              <span class="fw-600">How much money came in today</span>
-            </li>
-            <li class="visibility-item mb-4">
-              <span class="check-icon me-3">✓</span>
-              <span class="fw-600">How much money went out</span>
-            </li>
-            <li class="visibility-item mb-4">
-              <span class="check-icon me-3">✓</span>
-              <span class="fw-600">Your current business balance</span>
-            </li>
-            <li class="visibility-item mb-4">
-              <span class="check-icon me-3">✓</span>
-              <span class="fw-600">What is selling fast</span>
-            </li>
-            <li class="visibility-item">
-              <span class="check-icon me-3">✓</span>
-              <span class="fw-600">What may run out soon</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features" class="py-6">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-5 section-title">
-      What OmniPOS Does For Your Business
-    </h2>
-
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-3 bg-white border">
-          <h5 class="fw-bold mb-3">Point of Sale on Any Device</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Sell from your phone, tablet, or computer. No complicated machines needed.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-3 bg-white border">
-          <h5 class="fw-bold mb-3">POS Payments & Money Tracking</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Every payment is recorded automatically — cash or mobile money.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-3 bg-white border">
-          <h5 class="fw-bold mb-3">Stock Control</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Get alerts before items run out or stop selling.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-3 bg-white border">
-          <h5 class="fw-bold mb-3">Clear Business Insights</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Understand performance without complicated reports.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-3 bg-white border">
-          <h5 class="fw-bold mb-3">Offline POS & Data Safety</h5>
-          <p class="text-muted mb-0 lh-lg">
-            Your data stays safe even without internet.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-box h-100 p-5 rounded-3 bg-white border">
-          <h5 class="fw-bold mb-3">Built to Grow With You</h5>
-          <p class="text-muted mb-0 lh-lg">
-            OmniPOS grows as your business grows.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AI COMPANION -->
-<section class="py-6">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2 section-title">
-      Smart Business Companion (AI-Powered)
-    </h2>
-
-    <p class="text-center text-muted mb-5 section-subtitle">
-      Think of it as a smart assistant that reads your sales, stock, and money records and explains what they mean.
-    </p>
-
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="ai-card p-6 rounded-3 bg-gradient-ai">
-          <ul class="list-unstyled mb-0">
-            <li class="ai-item mb-4">
-              <span class="ai-check me-3">✓</span>
-              <span class="fw-600 text-white">Explains business performance in simple words</span>
-            </li>
-            <li class="ai-item mb-4">
-              <span class="ai-check me-3">✓</span>
-              <span class="fw-600 text-white">Detects unusual changes early</span>
-            </li>
-            <li class="ai-item mb-4">
-              <span class="ai-check me-3">✓</span>
-              <span class="fw-600 text-white">Suggests actions based on your history</span>
-            </li>
-            <li class="ai-item mb-4">
-              <span class="ai-check me-3">✓</span>
-              <span class="fw-600 text-white">Uses only your business data</span>
-            </li>
-           <li class="ai-item">
-              <span class="ai-check me-3">✓</span>
-              <span class="fw-600 text-white">You can talk to OmniPOS by asking it questions regarding your business</span>
-            </li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="py-6 bg-light-subtle">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2 section-title">Simple & Honest Pricing</h2>
-    <p class="text-center text-muted mb-2 section-subtitle">
-      No hidden fees. No complicated contracts. Cancel anytime.
-    </p>
-    <p class="text-center text-muted mb-6">
-      OmniPOS doesn't just record your business — it helps you understand it.
-    </p>
-
-    <div class="row g-4 justify-content-center">
-      <!-- STANDARD -->
-      <div class="col-md-6 col-lg-4">
-        <div class="pricing-card h-100 p-0 rounded-3 overflow-hidden bg-white border border-2 border-light">
-          <div class="pricing-header bg-light p-4 border-bottom">
-            <h5 class="mb-0 fw-bold">Standard</h5>
-          </div>
-          <div class="pricing-body p-5">
-            <div class="pricing-amount mb-5">
-              <h2 class="mb-0">MWK 65,000</h2>
-              <p class="text-muted mb-0 small">/month</p>
-            </div>
-            <ul class="list-unstyled pricing-features mb-5">
-              <li class="pricing-feature mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>Up to 2 users</span>
-              </li>
-              <li class="pricing-feature mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>POS & stock tracking</span>
-              </li>
-              <li class="pricing-feature mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>Money in / money out</span>
-              </li>
-              <li class="pricing-feature">
-                <span class="feature-check me-2">✓</span>
-                <span>Basic insights</span>
-              </li>
-            </ul>
-            <a href="https://omnipos.miwalletmw.com" target="_blank"
-               class="btn btn-outline-primary w-100 fw-600 py-2 rounded-2">
-              Get Started
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRO (FEATURED) -->
-      <div class="col-md-6 col-lg-4">
-        <div class="pricing-card pricing-featured h-100 p-0 rounded-3 overflow-hidden bg-gradient-blue shadow-lg position-relative">
-          <div class="badge-featured">Most Popular</div>
-          <div class="pricing-header bg-gradient-blue-dark p-4 border-bottom border-white border-opacity-25">
-            <h5 class="mb-0 fw-bold text-white">Pro</h5>
-          </div>
-          <div class="pricing-body p-5">
-            <div class="pricing-amount mb-5">
-              <h2 class="mb-0 text-white">MWK 150,000</h2>
-              <p class="text-white-50 mb-0 small">/month</p>
-            </div>
-            <ul class="list-unstyled pricing-features mb-5">
-              <li class="pricing-feature text-white mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>6 users</span>
-              </li>
-              <li class="pricing-feature text-white mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>Business insights</span>
-              </li>
-              <li class="pricing-feature text-white mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>Guidance & reports</span>
-              </li>
-              <li class="pricing-feature text-white">
-                <span class="feature-check me-2">✓</span>
-                <span>Priority support</span>
-              </li>
-            </ul>
-            <a href="https://omnipos.miwalletmw.com" target="_blank"
-               class="btn btn-light w-100 fw-600 py-2 rounded-2">
-              Get Started
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- BUSINESS -->
-      <div class="col-md-6 col-lg-4">
-        <div class="pricing-card h-100 p-0 rounded-3 overflow-hidden bg-white border border-2 border-light">
-          <div class="pricing-header bg-light p-4 border-bottom">
-            <h5 class="mb-0 fw-bold">Business</h5>
-          </div>
-          <div class="pricing-body p-5">
-            <div class="pricing-amount mb-5">
-              <h2 class="mb-0">MWK 450,000</h2>
-              <p class="text-muted mb-0 small">/month</p>
-            </div>
-            <ul class="list-unstyled pricing-features mb-5">
-              <li class="pricing-feature mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>Unlimited users</span>
-              </li>
-              <li class="pricing-feature mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>Advanced insights</span>
-              </li>
-              <li class="pricing-feature mb-3">
-                <span class="feature-check me-2">✓</span>
-                <span>Business intelligence</span>
-              </li>
-              <li class="pricing-feature">
-                <span class="feature-check me-2">✓</span>
-                <span>AI Money Companion</span>
-              </li>
-            </ul>
-            <a href="https://omnipos.miwalletmw.com" target="_blank"
-               class="btn btn-outline-primary w-100 fw-600 py-2 rounded-2">
-              Get Started
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section py-5 text-center bg-gradient-blue text-white">
-  <div class="container">
-    <h2 class="fw-bold mb-3 fs-2">Run Your Business With Confidence</h2>
-    <p class="lead mb-5 opacity-90">
-      Understand your money. Protect your business. Grow with clarity.
-    </p>
-    <a href="https://omnipos.miwalletmw.com" target="_blank"
-       class="btn btn-light btn-lg px-5 py-3 fw-600 rounded-pill shadow-sm">
-      Get Started Today
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-dark text-white-50 py-5">
-  <div class="container">
-    <div class="text-center">
-      <p class="mb-2 text-white">&copy; 2025 Mi Wallet LTD. All Rights Reserved.</p>
-      <p class="mb-0">
-        <a href="privacy" class="text-white-50 text-decoration-none hover-link">Privacy Policy</a>
-      </p>
-      <p class="mb-0"><a href="terms" class="text-white-50">Terms of Service</a></p>
+    <div class="footer-base">
+      <p>&copy; <span data-year></span> Mi Wallet Limited. All rights reserved.</p>
+      <p><a href="privacy">Privacy policy</a><a href="terms">Terms of service</a></p>
     </div>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+
 </body>
 </html>

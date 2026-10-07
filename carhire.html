@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Renew your subscription | Mi Wallet Limited</title>
-  <meta name="description" content="Check your Mi Wallet subscription status and renew.">
+  <title>Car Hire Management System | Mi Wallet Limited</title>
+  <meta name="description" content="A complete system for running a car hire business: bookings, deposits, vehicle release and return with photos, tracking, servicing and store.">
   <link rel="icon" type="image/png" href="img/favicon.png">
 
   <!-- Bootstrap 5 -->
@@ -14,7 +14,7 @@
   <!-- Site styles -->
   <link href="css/site.css" rel="stylesheet">
 </head>
-<body data-page="expired">
+<body data-page="carhire">
 
 <a class="skip-link btn btn-dark" href="#main">Skip to content</a>
 
@@ -111,39 +111,85 @@
 
 <header class="hero bg-dark text-white hero-page">
   <div class="container">
-    <h1>Your subscription may have expired.</h1>
-    <p class="lead">Check your account status below. If it has ended, you can renew in a few minutes and carry on where you left off. Your records are kept safe.</p>
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="badge rounded-pill fs-6 fw-semibold mb-3 text-bg-primary">Built for Diplomats Car Hire</p>
+        <h1>Every hire on one record, from quotation to return.</h1>
+        <p class="lead">The Car Hire Management System runs the whole business: customers, bookings, money, vehicles and the store. Nothing gets chased between the front desk, the finance office and the gate.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="contact" data-cfg-href="links.carhire" target="_blank" rel="noopener">Create a free account</a>
+          <a class="btn btn-outline-light btn-lg" href="#a-hire">Follow a hire</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <!-- Final photo: img/carhire-release.jpg -->
+<img src="img/front.jpg" alt="Vehicle release at a car hire yard: staff photographing the car with a phone" class="shot">
+      </div>
+    </div>
   </div>
 </header>
 
-<section id="check-status" class="py-5">
+<section class="py-5">
   <div class="container">
     <div class="row g-5">
-      <div class="col-lg-6">
+      <div class="col-lg-7 prose">
+        <h2>Built from the problems of a working yard</h2>
+        <p>Diplomats Car Hire came to us already a hosting client, with their website, email and data on our servers. When they asked us to build the system for their operation, we started by studying where things went wrong day to day: double bookings, deposits that were hard to account for, arguments about damage on return, and certificates that lapsed without anyone noticing.</p>
+        <p>Each of those problems became a rule the system enforces. A vehicle cannot be booked twice for the same dates. A hire cannot go out without a driver whose licence is valid for the whole period. Deposits are tracked on their own, never mixed up with income. Condition photos are taken at release and at return, so the record settles the question.</p>
+      </div>
+      <div class="col-lg-5">
         <div class="card card-body shadow-sm">
-          <h2 class="h3 mb-3">Check your subscription</h2>
-          <div id="login-form">
-            <label class="form-label" for="userLogin">Email or phone number you use to sign in</label>
-            <input type="text" id="userLogin" class="form-control mb-3" autocomplete="username">
-            <button type="button" id="btnCheck" class="btn btn-primary w-100">Check status</button>
-            <p id="statusError" class="inline-alert is-error mt-3 mb-0" role="alert" hidden></p>
-          </div>
-          <div id="status-result" hidden>
-            <h3 id="resName"></h3>
-            <span id="statusBadge" class="status-badge"></span>
-            <p id="expiryMsg"></p>
-            <button type="button" id="btnCheckAgain" class="btn btn-outline-primary">Check another account</button>
-          </div>
+          <h3>The system is organised into five parts</h3>
+          <p><strong>Sales</strong> for customers, quotations and bookings. <strong>Operations</strong> for the fleet: releases, live tracking, returns and servicing. <strong>Finance</strong> for invoices, payments and deposits. <strong>Inventory</strong> for the store and its stock movements. <strong>Admin</strong> for users and permissions.</p>
+          <p class="mb-0">Each member of staff sees only the parts their role needs. Finance data can also be connected to QuickBooks Online.</p>
         </div>
       </div>
-      <div class="col-lg-6">
-        <h2 class="h3 mb-3">How to renew</h2>
+    </div>
+  </div>
+</section>
+
+<section id="a-hire" class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h2 class="mb-3">A hire from start to finish</h2>
+        <p class="mb-5 lead text-body-secondary">Every step below is recorded on the same hire record, so anyone looking at it later sees the whole story.</p>
         <ol class="steps">
-          <li><h3>Choose your plan</h3><p>Mi Wallet Credit is <span data-cfg="pricing.credit" data-cfg-format="mwk"></span> a month. For OmniPOS plans, see <a href="omnipos#pricing">OmniPOS pricing</a>.</p></li>
-          <li><h3>Pay by mobile money</h3><p>Send the payment by Airtel Money or TNM Mpamba<span data-cfg-show-if="renewal.mobileMoneyNumber" hidden> to <strong data-cfg="renewal.mobileMoneyNumber"></strong></span>. Use <span data-cfg="renewal.reference"></span> as the reference so we can find your account.</p></li>
-          <li><h3>We activate 30 days of access</h3><p>Once the payment is matched to your account, your access is switched back on. If it has not come back within a working day, contact us.</p></li>
+          <li><h3>Register the customer</h3><p>Record the customer's details, identity and emergency contact. Photos of documents can be taken with an ordinary phone camera; they are compressed before upload so they send quickly even on a slow connection.</p></li>
+          <li><h3>Check every driver's licence</h3><p>Each person who will collect or drive the vehicle is added to the hire, and their licence expiry is checked against the hire's end date. A hire cannot be released without at least one valid driver.</p></li>
+          <li><h3>Send a quotation</h3><p>Prepare a quotation for the vehicle, dates and extras, and send it to the customer. When they accept, it becomes a booking without anything being typed twice.</p></li>
+          <li><h3>Book the vehicle</h3><p>The booking reserves the vehicle for those dates. The system refuses a second booking that overlaps, which ends double bookings.</p></li>
+          <li><h3>Invoice, take payment and hold the deposit</h3><p>Issue the invoice and record payments as they come in. The security deposit is recorded separately and reported as money held, not as income, so the accounts are never inflated by deposits that will be returned.</p></li>
+          <li><h3>Release the vehicle with a photo record</h3><p>At the gate, staff photograph the vehicle and note its condition, mileage and fuel. The release is tied to the hire, so the record shows who took which car and in what state.</p></li>
+          <li><h3>Track it while it is out</h3><p>Live tracking shows where each vehicle is during the hire.</p></li>
+          <li><h3>Receive it back and settle the deposit</h3><p>On return, the vehicle is photographed and checked against its release record. The deposit is then released, refunded or partly forfeited, and the reason is kept on the hire.</p></li>
+          <li><h3>Service, maintain and stay legal</h3><p>Each vehicle keeps its own servicing and maintenance history. The system watches certificate expiry dates so no vehicle goes out with lapsed papers. Parts and supplies come out of the store through controlled stock movements.</p></li>
         </ol>
-        <p class="mt-4">Need help? Write to <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="#"></a> or call <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="#"></a>.</p>
+      </div>
+      <div class="col-lg-5 media-stack">
+        <!-- Final photo: img/carhire-calendar.png -->
+<img src="img/front.jpg" alt="Booking calendar showing vehicles and hire dates, with no overlaps" class="shot" loading="lazy">
+        <div class="mt-4"><!-- Final photo: img/carhire-return-photos.png -->
+<img src="img/front.jpg" alt="Return inspection comparing release and return photos of the same vehicle" class="shot" loading="lazy"></div>
+        <div class="mt-4"><!-- Final photo: img/carhire-tracking.png -->
+<img src="img/front.jpg" alt="Live tracking map showing hired vehicles" class="shot" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <h2>Your own version, if you need one</h2>
+        <p>Car hire firms can use the system as it is, or ask us to build on it for their own way of working, such as online booking or procurement. Where we build a system to your order, you own it, source code and database included, and we can host and maintain it on our infrastructure if you want us to.</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="contact" data-cfg-href="links.carhire" target="_blank" rel="noopener">Try the Car Hire System</a>
+          <a class="btn btn-outline-primary btn-lg" href="contact">Talk about a custom build</a>
+        </div>
       </div>
     </div>
   </div>
@@ -199,81 +245,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/site.js"></script>
-<script>
-(function () {
-  "use strict";
-  var api = (window.SITE_CONFIG && window.SITE_CONFIG.api && window.SITE_CONFIG.api.subscriptionStatus) || "";
-  var input = document.getElementById("userLogin");
-  var btn = document.getElementById("btnCheck");
-  var errorBox = document.getElementById("statusError");
-  var form = document.getElementById("login-form");
-  var result = document.getElementById("status-result");
 
-  function showError(message) {
-    errorBox.textContent = message;
-    errorBox.hidden = false;
-  }
-
-  async function checkStatus(autoValue) {
-    var login = autoValue || input.value.trim();
-    errorBox.hidden = true;
-    if (!login) {
-      showError("Enter the email or phone number you use to sign in.");
-      input.focus();
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = "Checking…";
-
-    try {
-      var response = await fetch(api, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ login: login })
-      });
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      var data = await response.json();
-
-      if (data.success) {
-        form.hidden = true;
-        result.hidden = false;
-        document.getElementById("resName").textContent = "Hello, " + data.name;
-        var badge = document.getElementById("statusBadge");
-        var expired = data.status === "expired";
-        badge.textContent = expired ? "Expired" : "Active";
-        badge.className = "status-badge " + (expired ? "is-expired" : "is-active");
-        document.getElementById("expiryMsg").textContent = expired
-          ? "Your subscription has ended and access is locked. Follow the steps on this page to renew."
-          : "Your account is active until " + (data.expiryDate || "the end of the current period") + ".";
-      } else if (!autoValue) {
-        showError("No account was found for that email or phone number. Use the details you registered with.");
-      }
-    } catch (e) {
-      console.error("Subscription check failed:", e);
-      if (!autoValue) showError("We could not reach the subscription service. Try again in a few minutes, or contact support.");
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Check status";
-    }
-  }
-
-  btn.addEventListener("click", function () { checkStatus(); });
-  input.addEventListener("keydown", function (e) { if (e.key === "Enter") checkStatus(); });
-  document.getElementById("btnCheckAgain").addEventListener("click", function () {
-    result.hidden = true;
-    form.hidden = false;
-    input.value = "";
-    input.focus();
-  });
-
-  // The app opens this page with ?uuid=… to check the account automatically
-  var fromApp = new URLSearchParams(window.location.search).get("uuid");
-  if (fromApp) {
-    input.value = fromApp;
-    setTimeout(function () { checkStatus(fromApp); }, 300);
-  }
-})();
-</script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Renew your subscription | Mi Wallet Limited</title>
-  <meta name="description" content="Check your Mi Wallet subscription status and renew.">
+  <title>Custom software and hosting | Mi Wallet Limited</title>
+  <meta name="description" content="Custom web and mobile software built to order, and web, email, data and VPS hosting on AWS infrastructure run by Mi Wallet in Malawi.">
   <link rel="icon" type="image/png" href="img/favicon.png">
 
   <!-- Bootstrap 5 -->
@@ -14,7 +14,7 @@
   <!-- Site styles -->
   <link href="css/site.css" rel="stylesheet">
 </head>
-<body data-page="expired">
+<body data-page="services">
 
 <a class="skip-link btn btn-dark" href="#main">Skip to content</a>
 
@@ -111,40 +111,107 @@
 
 <header class="hero bg-dark text-white hero-page">
   <div class="container">
-    <h1>Your subscription may have expired.</h1>
-    <p class="lead">Check your account status below. If it has ended, you can renew in a few minutes and carry on where you left off. Your records are kept safe.</p>
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <h1>Software built to your requirements, on infrastructure we run.</h1>
+        <p class="lead">We build web applications, mobile apps, internal business systems and integrations for companies and development partners, and we host websites, email and data for organisations across Malawi.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="#software">Custom software</a>
+          <a class="btn btn-outline-light btn-lg" href="#hosting">Hosting and infrastructure</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <!-- Final photo: img/services-team.jpg -->
+<img src="img/front.jpg" alt="Mi Wallet team working through a system design with a client" class="shot">
+      </div>
+    </div>
   </div>
 </header>
 
-<section id="check-status" class="py-5">
+<section id="software" class="py-5">
   <div class="container">
+    <div class="band-head">
+      <h2>Custom software</h2>
+      <p>A selection of the systems we have been engaged to build.</p>
+    </div>
     <div class="row g-5">
-      <div class="col-lg-6">
-        <div class="card card-body shadow-sm">
-          <h2 class="h3 mb-3">Check your subscription</h2>
-          <div id="login-form">
-            <label class="form-label" for="userLogin">Email or phone number you use to sign in</label>
-            <input type="text" id="userLogin" class="form-control mb-3" autocomplete="username">
-            <button type="button" id="btnCheck" class="btn btn-primary w-100">Check status</button>
-            <p id="statusError" class="inline-alert is-error mt-3 mb-0" role="alert" hidden></p>
-          </div>
-          <div id="status-result" hidden>
-            <h3 id="resName"></h3>
-            <span id="statusBadge" class="status-badge"></span>
-            <p id="expiryMsg"></p>
-            <button type="button" id="btnCheckAgain" class="btn btn-outline-primary">Check another account</button>
-          </div>
+      <div class="col-md-4">
+        <div class="work card card-body h-100 shadow-sm">
+          <p class="client">Fluxstr8</p>
+          <h3>Cold chain monitoring system</h3>
+          <p>An Android application that tracks the temperature of pharmaceutical products as they move between regions, so a consignment's cold chain is monitored across the whole journey rather than checked only on arrival. Temperature integrity is the difference between usable medicine and waste, and the system makes a break in it visible.</p>
         </div>
       </div>
-      <div class="col-lg-6">
-        <h2 class="h3 mb-3">How to renew</h2>
-        <ol class="steps">
-          <li><h3>Choose your plan</h3><p>Mi Wallet Credit is <span data-cfg="pricing.credit" data-cfg-format="mwk"></span> a month. For OmniPOS plans, see <a href="omnipos#pricing">OmniPOS pricing</a>.</p></li>
-          <li><h3>Pay by mobile money</h3><p>Send the payment by Airtel Money or TNM Mpamba<span data-cfg-show-if="renewal.mobileMoneyNumber" hidden> to <strong data-cfg="renewal.mobileMoneyNumber"></strong></span>. Use <span data-cfg="renewal.reference"></span> as the reference so we can find your account.</p></li>
-          <li><h3>We activate 30 days of access</h3><p>Once the payment is matched to your account, your access is switched back on. If it has not come back within a working day, contact us.</p></li>
-        </ol>
-        <p class="mt-4">Need help? Write to <a data-cfg="email.support" data-cfg-href="email.support" data-cfg-scheme="mailto" href="#"></a> or call <a data-cfg="phone.primary" data-cfg-href="phone.primary" data-cfg-scheme="tel" href="#"></a>.</p>
+      <div class="col-md-4">
+        <div class="work card card-body h-100 shadow-sm">
+          <p class="client">GIZ</p>
+          <h3>District Nutrition Coordination System</h3>
+          <p>A coordination platform for nutrition programme activity at district level. It brings reporting and coordination into one system, so programme data can be collected, seen and acted on rather than assembled by hand from separate returns.</p>
+        </div>
       </div>
+      <div class="col-md-4">
+        <div class="work card card-body h-100 shadow-sm">
+          <p class="client">AfriTicket</p>
+          <h3>NFC payment system for commuters</h3>
+          <p>A contactless fare payment system for public transport. Commuters pay by tapping rather than handling cash, which is faster at the point of boarding and leaves an accurate record of every fare collected.</p>
+        </div>
+      </div>
+    </div>
+    <p class="band-foot">Alongside these we build web applications, mobile applications, internal business systems and integrations for clients across sectors, including the Car Hire Management System now used by car hire firms in Malawi.</p>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h2 class="mb-3">How an engagement works</h2>
+        <p class="mb-5 lead text-body-secondary">From the first conversation to a system your staff use every day.</p>
+        <ol class="steps">
+          <li><h3>We come and see how you work</h3><p>We are in Blantyre, so we can sit with the people who will use the system. We look for where work is repeated, where errors creep in and where information gets lost between departments.</p></li>
+          <li><h3>We agree scope, timeline and cost in writing</h3><p>You receive a written proposal setting out what will be built, by when and for how much. If requirements change along the way, we agree the effect on time and price before we act on it.</p></li>
+          <li><h3>We build and test with your staff</h3><p>You see working software early and often. Your staff test it against real cases, and the rules that prevent the mistakes we found in step one are built in.</p></li>
+          <li><h3>We hand it over, and you own it</h3><p>Where we develop a system to your order, you own it: source code, database and all. We would rather earn your maintenance and hosting on merit each year than hold your operation hostage.</p></li>
+          <li><h3>We host and look after it, if you want us to</h3><p>Your system can run on our infrastructure, with monitoring, backups and updates handled by us, or be installed wherever you choose.</p></li>
+        </ol>
+      </div>
+      <div class="col-lg-5 media-stack">
+        <!-- Final photo: img/services-workshop.jpg -->
+<img src="img/front.jpg" alt="Workshop with a client's staff testing a system on laptops" class="shot" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hosting" class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6 prose">
+        <h2>Hosting and infrastructure</h2>
+        <p>Before we sold software we were hosting other companies' operations, and we still do. Clients have trusted us with their websites, their company email and their business data since 2021.</p>
+        <p>All of it runs on Amazon Web Services infrastructure that Mi Wallet procures and configures. We are not reselling somebody else's shared hosting. Data is encrypted in transit and at rest, each client is kept separate from every other, backups are automated and tested, and patching and monitoring are our responsibility rather than yours.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="detail-grid" style="grid-template-columns: 1fr;">
+          <div><h3>Web hosting</h3><p>Websites and web applications hosted, monitored and maintained.</p></div>
+          <div><h3>Domain hosting</h3><p>Domain registration, DNS and renewals managed on your behalf.</p></div>
+          <div><h3>Business email</h3><p>Company email on your own domain, with the support to keep it running.</p></div>
+          <div><h3>Data hosting</h3><p>Databases and business data held securely, backed up and recoverable.</p></div>
+          <div><h3>Virtual private servers</h3><p>A dedicated VPS provisioned and managed for clients who need their own environment.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-dark text-white band-dark">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <h2>Tell us what you need built or hosted</h2>
+        <p>Describe the problem in your own words. We will come back with questions, and then with a written proposal.</p>
+      </div>
+      <div class="col-lg-5"><div class="actions"><a class="btn btn-primary btn-lg" href="contact">Start a conversation</a></div></div>
     </div>
   </div>
 </section>
@@ -199,81 +266,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/site.js"></script>
-<script>
-(function () {
-  "use strict";
-  var api = (window.SITE_CONFIG && window.SITE_CONFIG.api && window.SITE_CONFIG.api.subscriptionStatus) || "";
-  var input = document.getElementById("userLogin");
-  var btn = document.getElementById("btnCheck");
-  var errorBox = document.getElementById("statusError");
-  var form = document.getElementById("login-form");
-  var result = document.getElementById("status-result");
 
-  function showError(message) {
-    errorBox.textContent = message;
-    errorBox.hidden = false;
-  }
-
-  async function checkStatus(autoValue) {
-    var login = autoValue || input.value.trim();
-    errorBox.hidden = true;
-    if (!login) {
-      showError("Enter the email or phone number you use to sign in.");
-      input.focus();
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = "Checking…";
-
-    try {
-      var response = await fetch(api, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ login: login })
-      });
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      var data = await response.json();
-
-      if (data.success) {
-        form.hidden = true;
-        result.hidden = false;
-        document.getElementById("resName").textContent = "Hello, " + data.name;
-        var badge = document.getElementById("statusBadge");
-        var expired = data.status === "expired";
-        badge.textContent = expired ? "Expired" : "Active";
-        badge.className = "status-badge " + (expired ? "is-expired" : "is-active");
-        document.getElementById("expiryMsg").textContent = expired
-          ? "Your subscription has ended and access is locked. Follow the steps on this page to renew."
-          : "Your account is active until " + (data.expiryDate || "the end of the current period") + ".";
-      } else if (!autoValue) {
-        showError("No account was found for that email or phone number. Use the details you registered with.");
-      }
-    } catch (e) {
-      console.error("Subscription check failed:", e);
-      if (!autoValue) showError("We could not reach the subscription service. Try again in a few minutes, or contact support.");
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Check status";
-    }
-  }
-
-  btn.addEventListener("click", function () { checkStatus(); });
-  input.addEventListener("keydown", function (e) { if (e.key === "Enter") checkStatus(); });
-  document.getElementById("btnCheckAgain").addEventListener("click", function () {
-    result.hidden = true;
-    form.hidden = false;
-    input.value = "";
-    input.focus();
-  });
-
-  // The app opens this page with ?uuid=… to check the account automatically
-  var fromApp = new URLSearchParams(window.location.search).get("uuid");
-  if (fromApp) {
-    input.value = fromApp;
-    setTimeout(function () { checkStatus(fromApp); }, 300);
-  }
-})();
-</script>
 </body>
 </html>
